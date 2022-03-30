@@ -1,0 +1,29 @@
+.cards__title {
+    margin-left: 1.64vw;
+    font-size: 1.88vw;
+    line-height: 100%;
+    font-weight: bold;
+    color: #000000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 1024px) {
+    .cards__title {
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .cards__title {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .cards__title {
+        margin-left: 6.56vw;
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,18 @@
+.cards__like {
+    margin-right: 1.56vw;
+    min-width: 22px;
+    min-height: 19px;
+    cursor: pointer;
+    background-image: url("../../../images/cards__like.svg");
+}
+
+.cards__like:hover {
+    transition: 1s ease-in;
+    opacity: .5;
+}
+
+@media screen and (max-width: 320px) {
+    .cards__like {
+        margin-right: 5.38vw;
+    }
+}

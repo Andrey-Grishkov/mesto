@@ -1,0 +1,49 @@
+.popup__button-submit {
+    margin-top: 3.75vw;
+    margin-left: 2.81vw;
+    min-width: 27.97vw;
+    min-height: 3.91vw;
+    background-color: #000000;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-size: 1.41vw;
+    line-height: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+    .popup__button-submit {
+        font-size: 2.2vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .popup__button-submit {
+        margin: 3vw 0 0 3.4vw;
+        min-width: 35.97vw;
+        min-height: 5.91vw;
+        font-size: 2.6vw;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .popup__button-submit {
+        margin: 4vw 0 0 3.4vw;
+        min-width: 50.97vw;
+        min-height: 6.91vw;
+        font-size: 3.6vw;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .popup__button-submit {
+        margin: 14.06vw 0 0 6.88vw;
+        min-width: 74.38vw;
+        min-height: 14.38vw;
+        font-size: 4.38vw;
+    }
+}
+
+.popup__button-submit:hover {
+    transition: 1s ease-in;
+    opacity: .6;
+}

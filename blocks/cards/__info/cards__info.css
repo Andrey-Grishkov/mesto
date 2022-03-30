@@ -1,0 +1,14 @@
+.cards__info {
+    min-width: 22.03vw;
+    min-height: 6.17vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 320px) {
+    .cards__info {
+        min-height: 25vw;
+    }
+}

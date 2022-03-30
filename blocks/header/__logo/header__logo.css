@@ -1,0 +1,11 @@
+.header__logo {
+    margin-left: 0;
+    min-width: 11.09vw;
+    min-height: 2.58vw;
+}
+
+@media screen and (max-width: 320px) {
+    .header__logo {
+        min-width: 32.19vw;
+    }
+}

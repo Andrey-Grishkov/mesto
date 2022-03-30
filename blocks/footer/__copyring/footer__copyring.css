@@ -1,0 +1,12 @@
+.footer__copyring {
+    font-size: 18px;
+    line-height: 100%;
+    color: #545454;
+}
+
+@media screen and (max-width: 320px) {
+    .footer__copyring {
+        font-size: 14px;
+        line-height: 100%;
+    }
+}

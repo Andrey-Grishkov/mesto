@@ -1,0 +1,15 @@
+.cards__title-container {
+    max-width: 16.63vw;
+}
+
+@media screen and (max-width: 1024px) {
+    .cards__title-container {
+        max-width: 50vw;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .cards__title-container {
+        max-width: 65vw;
+    }
+}

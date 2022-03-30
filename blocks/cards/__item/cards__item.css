@@ -1,0 +1,11 @@
+.cards__item {
+    border-radius: 0.78vw;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+    .cards__item {
+        border-radius: 3.78vw;
+    }
+}

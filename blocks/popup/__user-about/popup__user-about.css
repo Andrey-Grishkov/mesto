@@ -1,0 +1,40 @@
+.popup__user-about {
+    margin-top: 2.34vw;
+    margin-left: 2.81vw;
+    min-width: 27.97vw;
+    min-height: 2.11vw;
+    font-size: 1.09vw;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+@media screen and (max-width: 1024px) {
+    .popup__user-about {
+        font-size: 1.8vw;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .popup__user-about {
+        margin: 4.22vw 0 0 3.4vw;
+        min-width: 35.97vw;
+        font-size: 2.6vw;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .popup__user-about {
+        margin: 5.22vw 0 0 5.4vw;
+        min-width: 48.97vw;
+        font-size: 3.6vw;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .popup__user-about {
+        margin: 9.38vw 0 0 6.88vw;
+        min-width: 74.38vw;
+        font-size: 4.38vw;
+        padding-bottom: 4.06vw;
+    }
+}
