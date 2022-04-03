@@ -4,6 +4,8 @@
     min-height: 19px;
     cursor: pointer;
     background-image: url("../../../images/cards__like.svg");
+    border: none;
+    background-color: #FFFFFF;
 }
 
 .cards__like:hover {
