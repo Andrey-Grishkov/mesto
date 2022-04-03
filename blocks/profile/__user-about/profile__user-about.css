@@ -3,12 +3,17 @@
     font-size: 1.41vw;
     line-height: 100%;
     font-weight: 400;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 25vw;
 }
 
 @media screen and (max-width: 768px) {
     .profile__user-about {
         text-align: center;
         font-size: 2.41vw;
+        max-width: 50vw;
     }
 }
 
@@ -17,5 +22,6 @@
         margin: 4.38vw 0 0 0;
         font-size: 4.38vw;
         line-height: 100%;
+        max-width: 60vw;
     }
 }

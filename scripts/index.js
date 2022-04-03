@@ -9,8 +9,8 @@ const profileUserAbout = document.querySelector('.profile__user-about');
 
 function toggleProfileEdit () {
     popupWindow.classList.toggle('popup_is-opened');
-    userNameInput.value = profileName.innerText;
-    userAboutInput.value = profileUserAbout.innerText;
+    userNameInput.value = profileName.textContent;
+    userAboutInput.value = profileUserAbout.textContent;
 }
 
 profileEdit.addEventListener('click', toggleProfileEdit);
@@ -18,8 +18,8 @@ popupCloseBtn.addEventListener('click', toggleProfileEdit);
 
 function submitUserInfo (event) {
     event.preventDefault();
-    profileName.innerText = userNameInput.value;
-    profileUserAbout.innerText = userAboutInput.value;
+    profileName.textContent = userNameInput.value;
+    profileUserAbout.textContent = userAboutInput.value;
     toggleProfileEdit ();
 }
 

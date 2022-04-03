@@ -1,6 +1,8 @@
 @import url(../vendor/normalize.css);
 
-@import url(../fonts/inter.css);
+@import url(../vendor/fonts/inter.css);
+
+@import url(../blocks/page/page.css);
 
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
@@ -38,41 +40,4 @@
 @import url(../blocks/popup/__user-input/popup__user-input.css);
 @import url(../blocks/popup/__user-input/_input/popup__user-input_input_name.css);
 @import url(../blocks/popup/__user-input/_input/popup__user-input_input_user-about.css);
-
-.page {
-    max-width: 1280px;
-    margin: 0 auto;
-    font-family: 'Inter', Arial, sans-serif;
-    color: #FFFFFF;
-    background-color: #000000;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-@media screen and (min-width: 1281px) {
-    .page {
-        max-width: 100%;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .page {
-        max-width: 1024px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .page {
-        max-width: 768px;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .page {
-        max-width: 320px;
-    }
-}
 
