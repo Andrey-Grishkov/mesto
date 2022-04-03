@@ -23,5 +23,7 @@
 @media screen and (max-width: 320px) {
     .profile__add {
         margin-top: 36px;
+        min-width: 88.13vw;
+        min-height: 50px;
     }
 }

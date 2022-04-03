@@ -10,6 +10,6 @@
 
 @media screen and (max-width: 320px) {
     .profile__avatar {
-        min-width: 52.81vw;
+        min-width: 37.5vw;
     }
 }

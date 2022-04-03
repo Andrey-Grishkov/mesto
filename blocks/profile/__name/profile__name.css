@@ -3,11 +3,16 @@
     font-size: 3.28vw;
     line-height: 94%;
     font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 22.97vw;
 }
 
 @media screen and (max-width: 768px) {
     .profile__name {
         font-size: 4.41vw;
+        max-width: 50vw;
     }
 }
 
@@ -15,5 +20,6 @@
     .profile__name {
         font-size: 27px;
         line-height: 100%;
+        max-width: 60vw;
     }
 }
