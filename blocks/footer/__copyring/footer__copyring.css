@@ -1,4 +1,6 @@
 .footer__copyring {
+    margin: 0;
+    padding: 0;
     font-size: 18px;
     line-height: 100%;
     color: #545454;

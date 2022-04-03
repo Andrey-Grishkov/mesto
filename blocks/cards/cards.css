@@ -22,6 +22,8 @@
 
 @media screen and (max-width: 320px) {
     .cards {
+        min-width: 88.13vw;
+        min-height: 112.81vw;
         gap: 6.25vw;
     }
 }
