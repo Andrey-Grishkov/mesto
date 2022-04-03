@@ -1,4 +1,5 @@
 .cards__title {
+    max-width: 16.63vw;
     margin-left: 1.64vw;
     font-size: 1.88vw;
     line-height: 100%;
@@ -12,6 +13,7 @@
 @media screen and (max-width: 1024px) {
     .cards__title {
         font-size: 2.5vw;
+        max-width: 50vw;
     }
 }
 
@@ -25,5 +27,6 @@
     .cards__title {
         margin-left: 6.56vw;
         font-size: 24px;
+        max-width: 65vw;
     }
 }
