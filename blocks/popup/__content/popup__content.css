@@ -1,10 +1,8 @@
 .popup__content {
     width: 100%;
     margin: 15.23vw auto 15.23vw auto;
-    padding-bottom: 25.78vw;
     padding-right: 33.59vw;
     max-width: 33.59vw;
-    max-height: 25.78vw;
     background-color: #FFFFFF;
     color: #000000;
     position: relative;
@@ -15,8 +13,6 @@
 @media screen and (max-width: 768px) {
     .popup__content {
         max-width: 45vw;
-        max-height: 37vw;
-        padding-bottom: 37vw;
         padding-right: 45vw;
     }
 }
@@ -25,8 +21,6 @@
     .popup__content {
         margin-top: 25vw;
         max-width: 60vw;
-        max-height: 47vw;
-        padding-bottom: 47vw;
         padding-right: 60vw;
     }
 }
@@ -35,8 +29,6 @@
     .popup__content {
         margin-top: 38.44vw;
         max-width: 88.13vw;
-        max-height: 100.63vw;
-        padding-bottom: 100.63vw;
         padding-right: 88.13vw;
     }
 }

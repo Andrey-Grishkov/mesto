@@ -5,8 +5,8 @@
     cursor: pointer;
     width: 32px;
     height: 32px;
-    top: -32px;
-    right: -32px;
+    top: -40px;
+    right: -40px;
     object-fit: cover;
 }
 
