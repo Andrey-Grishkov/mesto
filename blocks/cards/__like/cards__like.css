@@ -13,6 +13,12 @@
     opacity: .5;
 }
 
+@media screen and (min-width: 1281px) {
+    .cards__like {
+        margin-right: 20px;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .cards__like {
         margin-right: 5.38vw;

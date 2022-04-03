@@ -4,6 +4,12 @@
     overflow: hidden;
 }
 
+@media screen and (min-width: 1281px) {
+    .cards__item {
+        border-radius: 10px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .cards__item {
         border-radius: 3.78vw;

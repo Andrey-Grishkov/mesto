@@ -9,6 +9,13 @@
     max-width: 25vw;
 }
 
+@media screen and (min-width: 1281px) {
+    .profile__user-about {
+        margin: 16px 0 0 0;
+        font-size: 18px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .profile__user-about {
         text-align: center;

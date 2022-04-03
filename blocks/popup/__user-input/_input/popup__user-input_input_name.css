@@ -2,6 +2,12 @@
     margin-top: 4.22vw;
 }
 
+@media screen and (min-width: 1281px) {
+    .popup__user-input_input_name {
+        margin-top: 54px;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .popup__user-input_input_name {
         margin: 23.44vw 0 0 6.88vw;

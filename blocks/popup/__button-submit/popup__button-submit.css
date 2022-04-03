@@ -13,6 +13,17 @@
     padding: 0;
 }
 
+@media screen and (min-width: 1281px) {
+    .popup__button-submit {
+        margin-top: 48px;
+        margin-bottom: 37px;
+        margin-left: 36px;
+        min-width: 358px;
+        min-height: 50px;
+        font-size: 18px;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .popup__button-submit {
         font-size: 2.2vw;
