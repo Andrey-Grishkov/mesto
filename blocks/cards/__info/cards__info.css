@@ -1,5 +1,6 @@
 .cards__info {
     min-width: 22.03vw;
+    padding-bottom: 0.86vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -9,5 +10,11 @@
 @media screen and (min-width: 1281px) {
     .cards__info {
         min-width: 282px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .cards__info {
+        padding-bottom: 2.81vw;
     }
 }

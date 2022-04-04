@@ -2,7 +2,7 @@
     max-width: 16.63vw;
     margin-left: 1.64vw;
     font-size: 1.88vw;
-    line-height: 100%;
+    line-height: 29px;
     font-weight: bold;
     color: #000000;
     overflow: hidden;
@@ -33,6 +33,7 @@
 
 @media screen and (max-width: 320px) {
     .cards__title {
+
         margin-left: 6.56vw;
         font-size: 24px;
         max-width: 65vw;
