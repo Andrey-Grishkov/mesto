@@ -54,3 +54,51 @@ popupСardAddCloseBtn.addEventListener('click', togglePopupСardAdd);
 function togglePopupСardAdd () {
     popupСardAdd.classList.toggle('popup_is-opened');
 }
+
+const initialCards = [
+    {
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+];
+
+const cardsContainer = document.querySelector(".cards");
+function cardsElement (item) {
+    return `
+      <li class="cards__item">
+        <button class="cards__delete" type="button"></button>
+        <img class="cards__image" src="${item.link}" alt="${item.name}">
+        <div class="cards__info">
+          <h2 class="cards__title">${item.name}</h2>
+          <button class="cards__like" type="button"></button>
+        </div>
+      </li>
+    `;
+}
+
+function renderCards() {
+    const cardHtml = initialCards.map(cardsElement).join("");
+    cardsContainer.insertAdjacentHTML("afterbegin", cardHtml);
+}
+
+renderCards();

@@ -2,6 +2,7 @@
     max-width: 22.03vw;
     max-height: 22.03vw;
     object-fit: cover;
+    cursor: pointer;
     z-index: 1;
 }
 
@@ -9,6 +10,13 @@
     .cards__image {
         min-width: 282px;
         min-height: 361px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .cards__image {
+        min-width: 22.03vw;
+        min-height: 22.03vw;
     }
 }
 
