@@ -7,12 +7,26 @@
     border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
 
+.popup__user-input:first-of-type {
+    margin-top: 4.22vw;
+}
+
+.popup__user-input:last-of-type {
+    margin-top: 2.34vw;
+}
+
 @media screen and (min-width: 1281px) {
     .popup__user-input {
         margin-left: 36px;
         min-width: 358px;
         min-height: 27px;
         font-size: 14px;
+    }
+    .popup__user-input:first-of-type {
+        margin-top: 54px;
+    }
+    .popup__user-input:last-of-type {
+        margin-top: 30px;
     }
 }
 
@@ -43,5 +57,11 @@
         min-width: 74.38vw;
         font-size: 4.38vw;
         padding-bottom: 4.06vw;
+    }
+    .popup__user-input:first-of-type {
+        margin: 23.44vw 0 0 6.88vw;
+    }
+    .popup__user-input:last-of-type {
+        margin: 9.38vw 0 0 6.88vw;
     }
 }

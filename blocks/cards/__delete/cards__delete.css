@@ -10,7 +10,6 @@
     background-repeat: no-repeat;
     object-fit: cover;
     border: none;
-    z-index: 2;
     position: absolute;
 }
 
