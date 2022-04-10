@@ -19,6 +19,12 @@
     }
 }
 
+@media screen and (max-width: 768px) {
+    .cards__like {
+        margin-right: 4vw;
+    }
+}
+
 @media screen and (max-width: 320px) {
     .cards__like {
         margin-right: 5.38vw;

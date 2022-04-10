@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 1024px) {
     .cards__image {
-        min-width: 33.59vw;
+        min-width: 33.8vw;
         min-height: 34.18vw;
         overflow: hidden;
     }
