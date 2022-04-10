@@ -92,21 +92,34 @@ function cardsElement (item) {
     const cardsImage = cardsElement.querySelector(".cards__image");
     const СardDeleteBtn = cardsElement.querySelector(".cards__delete");
     const LikeСardBtn = cardsElement.querySelector(".cards__like");
+    const imagePopup = document.querySelector(".popup_size-image");
 
     cardsTitle.textContent = item.name;
     cardsImage.src = item.link;
     cardsImage.alt = item.name;
     LikeСardBtn.addEventListener("click", toggleLike);
+    cardsImage.addEventListener("click", toggleImage);
     СardDeleteBtn.addEventListener("click", deleteCard);
+
+    const popupImageCloseBtn = imagePopup.querySelector(".popup__close");
+    popupImageCloseBtn.addEventListener("click", closeImage);
+
+    function closeImage () {
+        imagePopup.classList.remove("popup_is-opened");
+    }
+    
+
+    function toggleImage () {
+        imagePopup.classList.toggle("popup_is-opened");
+    }
+
+
     function toggleLike () {
         LikeСardBtn.classList.toggle("cards__like_active");
     }
-    
+
     return cardsElement;
 }
-
-
-
 
 
 function deleteCard (event) {
