@@ -83,22 +83,21 @@ const initialCards = [
 ];
 
 const cardsContainer = document.querySelector(".cards");
+const templateCards = document.querySelector(".template-cards");
+
 function cardsElement (item) {
-    return `
-      <li class="cards__item">
-        <button class="cards__delete" type="button"></button>
-        <img class="cards__image" src="${item.link}" alt="${item.name}">
-        <div class="cards__info">
-          <h2 class="cards__title">${item.name}</h2>
-          <button class="cards__like" type="button"></button>
-        </div>
-      </li>
-    `;
+    const cardsElement = templateCards.content.cloneNode(true);
+    const cardsTitle = cardsElement.querySelector(".cards__title");
+    const cardsImage = cardsElement.querySelector(".cards__image");
+    cardsTitle.textContent = item.name;
+    cardsImage.src = item.link;
+    cardsImage.alt = item.name;
+    return cardsElement;
 }
 
 function renderCards() {
-    const cardHtml = initialCards.map(cardsElement).join("");
-    cardsContainer.insertAdjacentHTML("afterbegin", cardHtml);
+    const cardHtml = initialCards.map(cardsElement);
+    cardsContainer.append(...cardHtml);
 }
 
 renderCards();
