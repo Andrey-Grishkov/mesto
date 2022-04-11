@@ -1,56 +1,3 @@
-/* поиск кнопки профиль едит*/
-const profileEdit = document.querySelector('.profile__edit');
-
-/* поиск попапа профиль едит*/
-const popupProfileEdit = document.querySelector('.popup_profile_edit');
-
-/* поиск кнопки закрытия попапа профиль едит*/
-const popupProfileEditCloseBtn = popupProfileEdit.querySelector('.popup__close');
-/* поиск кнопки сохранения попапа профиль едит*/
-const popupProfileEditSubmit = popupProfileEdit.querySelector('.popup__form');
-
-/* графы с данными пользователя в профиле*/
-const profileName = document.querySelector('.profile__name');
-const profileUserAbout = document.querySelector('.profile__user-about');
-
-/* графы ввода данных пользователя попапа профиль едит*/
-const userNameInput = popupProfileEdit.querySelector('.popup__user-input_input_name');
-const userAboutInput = popupProfileEdit.querySelector('.popup__user-input_input_user-about');
-
-/* функция закрытия попапа профиль едит*/
-function toggleProfileEdit () {
-    popupProfileEdit.classList.toggle('popup_is-opened');
-    userNameInput.value = profileName.textContent;
-    userAboutInput.value = profileUserAbout.textContent;
-}
-
-/* слушатель открытия попапа профиль едит*/
-profileEdit.addEventListener('click', toggleProfileEdit);
-
-/* слушатель закрытия попапа профиль едит*/
-popupProfileEditCloseBtn.addEventListener('click', toggleProfileEdit);
-
-
-/* слушатель сохранения попапа профиль едит*/
-popupProfileEditSubmit.addEventListener('submit', submitUserInfo);
-
-/* функция сохранения попапа профиль едит*/
-function submitUserInfo (event) {
-    event.preventDefault();
-    profileName.textContent = userNameInput.value;
-    profileUserAbout.textContent = userAboutInput.value;
-    toggleProfileEdit ();
-}
-
-
-const cardAddBtn = document.querySelector('.profile__add');
-const popupСardAdd = document.querySelector('.popup_card_add');
-const popupСardAddCloseBtn = popupСardAdd.querySelector('.popup__close');
-
-cardAddBtn.addEventListener('click', togglePopupСardAdd);
-popupСardAddCloseBtn.addEventListener('click', togglePopupСardAdd);
-
-
 const initialCards = [
     {
         name: 'Архыз',
@@ -78,65 +25,40 @@ const initialCards = [
     }
 ];
 
-const cardsContainer = document.querySelector(".cards");
-const templateCards = document.querySelector(".template-cards");
+const profileEdit = document.querySelector('.profile__edit');
+const popupProfileEdit = document.querySelector('.popup_profile_edit');
+const popupProfileEditCloseBtn = popupProfileEdit.querySelector('.popup__close');
+const popupProfileEditSubmit = popupProfileEdit.querySelector('.popup__form');
+const profileName = document.querySelector('.profile__name');
+const profileUserAbout = document.querySelector('.profile__user-about');
+const userNameInput = popupProfileEdit.querySelector('.popup__user-input_input_name');
+const userAboutInput = popupProfileEdit.querySelector('.popup__user-input_input_user-about');
 
-function renderCards() {
-    const cardHtml = initialCards.map(cardsElement);
-    cardsContainer.append(...cardHtml);
+profileEdit.addEventListener('click', toggleProfileEdit);
+popupProfileEditCloseBtn.addEventListener('click', toggleProfileEdit);
+popupProfileEditSubmit.addEventListener('submit', submitUserInfo);
+
+function toggleProfileEdit () {
+    popupProfileEdit.classList.toggle('popup_is-opened');
+    userNameInput.value = profileName.textContent;
+    userAboutInput.value = profileUserAbout.textContent;
 }
 
-function cardsElement (item) {
-    const cardsElement = templateCards.content.cloneNode(true);
-    const cardsTitle = cardsElement.querySelector(".cards__title");
-    const cardsImage = cardsElement.querySelector(".cards__image");
-    const СardDeleteBtn = cardsElement.querySelector(".cards__delete");
-    const LikeСardBtn = cardsElement.querySelector(".cards__like");
-    const imagePopup = document.querySelector(".popup_size-image");
-
-    cardsTitle.textContent = item.name;
-    cardsImage.src = item.link;
-    cardsImage.alt = item.name;
-    LikeСardBtn.addEventListener("click", toggleLike);
-    cardsImage.addEventListener("click", toggleImage);
-    СardDeleteBtn.addEventListener("click", deleteCard);
-
-    const popupImageCloseBtn = imagePopup.querySelector(".popup__close");
-    popupImageCloseBtn.addEventListener("click", closeImage);
-
-    const ImageBigsize = imagePopup.querySelector(".popup__image");
-    const ImageBigsizeTitle = imagePopup.querySelector(".popup__image-title");
-
-    function closeImage () {
-        imagePopup.classList.remove("popup_is-opened");
-    }
-
-
-    function toggleImage () {
-        imagePopup.classList.toggle("popup_is-opened");
-        ImageBigsize.src = item.link;
-        ImageBigsize.alt = item.name;
-        ImageBigsizeTitle.textContent = item.name;
-    }
-
-    function toggleLike () {
-        LikeСardBtn.classList.toggle("cards__like_active");
-    }
-
-    return cardsElement;
+function submitUserInfo (event) {
+    event.preventDefault();
+    profileName.textContent = userNameInput.value;
+    profileUserAbout.textContent = userAboutInput.value;
+    toggleProfileEdit ();
 }
 
-
-function deleteCard (event) {
-    const elementCard = event.target.closest(".cards__item");
-    elementCard.remove();
-}
-
-
-
-renderCards();
-
+const cardAddBtn = document.querySelector('.profile__add');
+const popupСardAdd = document.querySelector('.popup_card_add');
+const popupСardAddCloseBtn = popupСardAdd.querySelector('.popup__close');
 const popupСardAddSubmit = popupСardAdd.querySelector('.popup__button-submit');
+
+
+cardAddBtn.addEventListener('click', togglePopupСardAdd);
+popupСardAddCloseBtn.addEventListener('click', togglePopupСardAdd);
 popupСardAddSubmit.addEventListener('click', handleAddCard);
 
 function togglePopupСardAdd () {
@@ -145,12 +67,69 @@ function togglePopupСardAdd () {
 
 function handleAddCard (event) {
     event.preventDefault();
-    const CardName = popupСardAdd.querySelector('.popup__user-input_input_card-title').value;
-    const CardLinkImage = popupСardAdd.querySelector('.popup__user-input_input_card-image').value;
-    const handleAddCardElement=cardsElement({name:CardName, link:CardLinkImage});
+    const cardName = popupСardAdd.querySelector('.popup__user-input_input_card-title').value;
+    const cardLinkImage = popupСardAdd.querySelector('.popup__user-input_input_card-image').value;
+    const handleAddCardElement=getCardsElement({name:cardName, link:cardLinkImage});
     cardsContainer.prepend(handleAddCardElement);
     popupСardAdd.classList.toggle('popup_is-opened');
 }
+
+const cardsContainer = document.querySelector(".cards");
+const templateCards = document.querySelector(".template-cards");
+
+function renderCards() {
+    const cardHtml = initialCards.map(getCardsElement);
+    cardsContainer.append(...cardHtml);
+}
+
+function getCardsElement (item) {
+    const cardsElement = templateCards.content.cloneNode(true);
+    const cardsTitle = cardsElement.querySelector(".cards__title");
+    const cardsImage = cardsElement.querySelector(".cards__image");
+    const cardDeleteBtn = cardsElement.querySelector(".cards__delete");
+    const likeСardBtn = cardsElement.querySelector(".cards__like");
+    const imagePopup = document.querySelector(".popup_size-image");
+
+    cardsTitle.textContent = item.name;
+    cardsImage.src = item.link;
+    cardsImage.alt = item.name;
+
+    likeСardBtn.addEventListener("click", toggleLike);
+    cardsImage.addEventListener("click", toggleImage);
+    cardDeleteBtn.addEventListener("click", deleteCard);
+
+    const popupImageCloseBtn = imagePopup.querySelector(".popup__close");
+    popupImageCloseBtn.addEventListener("click", closeImage);
+
+    const imageBigSize = imagePopup.querySelector(".popup__image");
+    const imageBigSizeTitle = imagePopup.querySelector(".popup__image-title");
+
+    function closeImage () {
+        imagePopup.classList.remove("popup_is-opened");
+    }
+
+    function toggleImage () {
+        imagePopup.classList.toggle("popup_is-opened");
+        imageBigSize.src = item.link;
+        imageBigSize.alt = item.name;
+        imageBigSizeTitle.textContent = item.name;
+    }
+
+    function toggleLike () {
+        likeСardBtn.classList.toggle("cards__like_active");
+    }
+
+    return cardsElement;
+}
+
+renderCards();
+
+function deleteCard (event) {
+    const elementCard = event.target.closest(".cards__item");
+    elementCard.remove();
+}
+
+
 
 
 
