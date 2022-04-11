@@ -40,59 +40,9 @@
 @import url(../blocks/popup/__title/popup__title.css);
 @import url(../blocks/popup/__button-submit/popup__button-submit.css);
 @import url(../blocks/popup/__user-input/popup__user-input.css);
+@import url(../blocks/popup/__image-content/popup__image-content.css);
+@import url(../blocks/popup/__image/popup__image.css);
+@import url(../blocks/popup/__image-title/popup__image-title.css);
 
 
-.popup__image-content {
-    width: 100%;
-    margin: 15.23vw auto 15.23vw auto;
-    padding-right: 33.59vw;
-    max-width: 33.59vw;
-    background-color: #FFFFFF;
-    color: #000000;
-    position: relative;
-    box-sizing: border-box;
-    border-radius: 10px;
-}
-
-.popup__image {
-    width: 100%;
-    object-fit: cover;
-}
-
-
-
-
-
-
-
-@media screen and (min-width: 1281px) {
-    .popup__content {
-        top: auto;
-        max-width: 430px;
-        padding-right: 430px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .popup__content {
-        max-width: 45vw;
-        padding-right: 45vw;
-    }
-}
-
-@media screen and (max-width: 530px) {
-    .popup__content {
-        margin-top: 25vw;
-        max-width: 60vw;
-        padding-right: 60vw;
-    }
-}
-
-@media screen and (max-width: 320px) {
-    .popup__content {
-        margin-top: 38.44vw;
-        max-width: 88.13vw;
-        padding-right: 88.13vw;
-    }
-}
 

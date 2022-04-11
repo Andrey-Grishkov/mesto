@@ -104,15 +104,20 @@ function cardsElement (item) {
     const popupImageCloseBtn = imagePopup.querySelector(".popup__close");
     popupImageCloseBtn.addEventListener("click", closeImage);
 
+    const ImageBigsize = imagePopup.querySelector(".popup__image");
+    const ImageBigsizeTitle = imagePopup.querySelector(".popup__image-title");
+
     function closeImage () {
         imagePopup.classList.remove("popup_is-opened");
     }
-    
+
 
     function toggleImage () {
         imagePopup.classList.toggle("popup_is-opened");
+        ImageBigsize.src = item.link;
+        ImageBigsize.alt = item.name;
+        ImageBigsizeTitle.textContent = item.name;
     }
-
 
     function toggleLike () {
         LikeСardBtn.classList.toggle("cards__like_active");
