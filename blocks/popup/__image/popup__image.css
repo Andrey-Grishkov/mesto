@@ -1,7 +1,8 @@
 .popup__image {
-    max-width: 63.75vw;
-    max-height: 43.91vw;
+    max-width: 75vw;
+    max-height: 75vh;
     object-fit: cover;
+    color: transparent;
 }
 
 @media screen and (min-width: 1281px) {
