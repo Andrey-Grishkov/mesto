@@ -10,6 +10,7 @@
 @media screen and (min-width: 1281px) {
     .cards__info {
         min-width: 282px;
+        padding-bottom: 11px;
     }
 }
 

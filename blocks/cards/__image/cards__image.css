@@ -8,7 +8,9 @@
 @media screen and (min-width: 1281px) {
     .cards__image {
         min-width: 282px;
-        min-height: 361px;
+        min-height: 282px;
+        max-width: 282px;
+        max-height: 282px;
     }
 }
 
