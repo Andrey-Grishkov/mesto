@@ -1,53 +1,33 @@
 .popup__user-input {
-    margin-left: 2.81vw;
-    min-width: 27.97vw;
-    min-height: 2.11vw;
-    font-size: 1.09vw;
+    margin-left: 36px;
+    min-width: 358px;
+    min-height: 27px;
+    font-size: 14px;
     border: none;
     border-bottom: 1px solid rgba(0, 0, 0, .2);
 }
 
 .popup__user-input:first-of-type {
-    margin-top: 4.22vw;
+    margin-top: 54px;
 }
 
 .popup__user-input:last-of-type {
-    margin-top: 2.34vw;
-}
-
-@media screen and (min-width: 1281px) {
-    .popup__user-input {
-        margin-left: 36px;
-        min-width: 358px;
-        min-height: 27px;
-        font-size: 14px;
-    }
-    .popup__user-input:first-of-type {
-        margin-top: 54px;
-    }
-    .popup__user-input:last-of-type {
-        margin-top: 30px;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .popup__user-input {
-        font-size: 1.8vw;
-    }
+    margin-top: 30px;
 }
 
 @media screen and (max-width: 768px) {
     .popup__user-input {
-        margin: 4.22vw 0 0 3.4vw;
-        min-width: 35.97vw;
-        font-size: 2.6vw;
+        margin-left: 4.69vw;
+        min-width: 50vw;
+        min-height: 3.52vw;
+        font-size: 1.82vw;
     }
 }
 
 @media screen and (max-width: 530px) {
     .popup__user-input {
         margin: 5.22vw 0 0 5.4vw;
-        min-width: 48.97vw;
+        max-width: 44vw;
         font-size: 3.6vw;
     }
 }
