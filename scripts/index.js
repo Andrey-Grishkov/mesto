@@ -56,10 +56,10 @@ function renderCards() {
 
 function getCardsElement(item) {
   const cardsElement = templateCards.content.cloneNode(true);
-  const cardsTitle = cardsElement.querySelector(".cards__title");
-  const cardsImage = cardsElement.querySelector(".cards__image");
-  const cardDeleteBtn = cardsElement.querySelector(".cards__delete");
-  const likeСardBtn = cardsElement.querySelector(".cards__like");
+  const cardsTitle = cardsElement.querySelector(".card__title");
+  const cardsImage = cardsElement.querySelector(".card__image");
+  const cardDeleteBtn = cardsElement.querySelector(".card__delete");
+  const likeСardBtn = cardsElement.querySelector(".card__like");
 
   cardsTitle.textContent = item.name;
   cardsImage.src = item.link;
@@ -73,7 +73,7 @@ function getCardsElement(item) {
   });
 
   likeСardBtn.addEventListener("click", toggleLike =>{
-    likeСardBtn.classList.toggle("cards__like_active");
+    likeСardBtn.classList.toggle("card__like_active");
   });
 
   cardDeleteBtn.addEventListener("click", deleteCard);
@@ -81,7 +81,7 @@ function getCardsElement(item) {
 }
 
 function deleteCard (event) {
-  const elementCard = event.target.closest(".cards__item");
+  const elementCard = event.target.closest(".card");
   elementCard.remove();
 }
 

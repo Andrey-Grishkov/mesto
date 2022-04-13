@@ -1,4 +1,4 @@
-.cards__image {
+.card__image {
     max-width: 22.03vw;
     max-height: 22.03vw;
     object-fit: cover;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (min-width: 1281px) {
-    .cards__image {
+    .card__image {
         min-width: 282px;
         min-height: 282px;
         max-width: 282px;
@@ -15,14 +15,14 @@
 }
 
 @media screen and (max-width: 1280px) {
-    .cards__image {
+    .card__image {
         min-width: 22.03vw;
         min-height: 22.03vw;
     }
 }
 
 @media screen and (max-width: 1024px) {
-    .cards__image {
+    .card__image {
         min-width: 33.8vw;
         min-height: 34.18vw;
         overflow: hidden;
@@ -30,14 +30,14 @@
 }
 
 @media screen and (max-width: 768px) {
-    .cards__image {
+    .card__image {
         min-width: 100%;
         min-height: 68.36vw;
     }
 }
 
 @media screen and (max-width: 320px) {
-    .cards__image {
+    .card__image {
         min-height: 88.13vw;
     }
 }

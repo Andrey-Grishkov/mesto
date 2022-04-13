@@ -1,4 +1,4 @@
-.cards__info {
+.card__info {
     min-width: 22.03vw;
     padding-bottom: 0.86vw;
     display: flex;
@@ -8,14 +8,14 @@
 }
 
 @media screen and (min-width: 1281px) {
-    .cards__info {
+    .card__info {
         min-width: 282px;
         padding-bottom: 11px;
     }
 }
 
 @media screen and (max-width: 320px) {
-    .cards__info {
+    .card__info {
         padding-bottom: 2.81vw;
     }
 }

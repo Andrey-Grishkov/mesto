@@ -1,4 +1,4 @@
-.cards__like {
+.card__like {
     margin-right: 1.56vw;
     min-width: 22px;
     min-height: 19px;
@@ -8,25 +8,25 @@
     background-color: #FFFFFF;
 }
 
-.cards__like:hover {
+.card__like:hover {
     transition: 1s ease-in;
     opacity: .5;
 }
 
 @media screen and (min-width: 1281px) {
-    .cards__like {
+    .card__like {
         margin-right: 20px;
     }
 }
 
 @media screen and (max-width: 768px) {
-    .cards__like {
+    .card__like {
         margin-right: 4vw;
     }
 }
 
 @media screen and (max-width: 320px) {
-    .cards__like {
+    .card__like {
         margin-right: 5.38vw;
     }
 }

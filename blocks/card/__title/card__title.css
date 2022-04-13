@@ -1,4 +1,4 @@
-.cards__title {
+.card__title {
     max-width: 16.63vw;
     margin-left: 1.64vw;
     font-size: 1.88vw;
@@ -11,7 +11,7 @@
 }
 
 @media screen and (min-width: 1281px) {
-    .cards__title {
+    .card__title {
         max-width: 210px;
         margin-left: 21px;
         font-size: 24px;
@@ -19,7 +19,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .cards__title {
+    .card__title {
         font-size: 2.5vw;
         max-width: 50vw;
     }
