@@ -1,4 +1,4 @@
-const ProfileEditBtn = document.querySelector('.profile__edit');
+const profileEditBtn = document.querySelector('.profile__edit');
 const profileName = document.querySelector('.profile__name');
 const profileUserAbout = document.querySelector('.profile__user-about');
 
@@ -22,9 +22,6 @@ const popupImageCloseBtn = imagePopup.querySelector(".popup__close");
 const imageBigSize = imagePopup.querySelector(".popup__image");
 const imageBigSizeTitle = imagePopup.querySelector(".popup__image-title");
 
-userNameInput.value = profileName.textContent;
-userAboutInput.value = profileUserAbout.textContent;
-
 function openPopup(popupType) {
   popupType.classList.add('popup_is-opened');
 }
@@ -33,7 +30,7 @@ function closePopup(popupType) {
   popupType.classList.remove("popup_is-opened");
 }
 
-function submitUserInfo (event) {
+function handleSubmitUserInfo (event) {
   event.preventDefault();
   profileName.textContent = userNameInput.value;
   profileUserAbout.textContent = userAboutInput.value;
@@ -47,12 +44,12 @@ function handleAddCard (event) {
   closePopup(popupСardAdd);
 }
 
-renderCards();
-
 function renderCards() {
   const cardHtml = initialCards.map(getCardsElement);
   cardsContainer.append(...cardHtml);
 }
+
+renderCards();
 
 function getCardsElement(item) {
   const cardsElement = templateCards.content.cloneNode(true);
@@ -66,10 +63,10 @@ function getCardsElement(item) {
   cardsImage.alt = item.name;
 
   cardsImage.addEventListener("click", () =>{
-    openPopup(imagePopup);
     imageBigSize.src = item.link;
     imageBigSize.alt = item.name;
     imageBigSizeTitle.textContent = item.name;
+    openPopup(imagePopup);
   });
 
   likeСardBtn.addEventListener("click", toggleLike =>{
@@ -86,9 +83,13 @@ function deleteCard (event) {
 }
 
 popupСardAddSubmit.addEventListener('click', handleAddCard);
-popupProfileEditSubmit.addEventListener('submit', submitUserInfo);
+popupProfileEditSubmit.addEventListener('submit', handleSubmitUserInfo);
 popupProfileEditCloseBtn.addEventListener('click', () => closePopup(popupProfileEdit));
 popupСardAddCloseBtn.addEventListener('click', () => closePopup(popupСardAdd));
 popupImageCloseBtn.addEventListener("click", () => closePopup(imagePopup));
 cardAddBtn.addEventListener('click', () => openPopup(popupСardAdd));
-ProfileEditBtn.addEventListener('click', () => openPopup(popupProfileEdit));
+profileEditBtn.addEventListener('click', () => {
+  userNameInput.value = profileName.textContent;
+  userAboutInput.value = profileUserAbout.textContent;
+  openPopup(popupProfileEdit);
+});
