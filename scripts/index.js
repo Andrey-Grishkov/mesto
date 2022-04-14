@@ -69,17 +69,19 @@ function getCardsElement(item) {
     openPopup(imagePopup);
   });
 
-  likeСardBtn.addEventListener("click", toggleLike =>{
-    likeСardBtn.classList.toggle("card__like_active");
-  });
-
+  likeСardBtn.addEventListener("click", toggleLike);
   cardDeleteBtn.addEventListener("click", deleteCard);
   return cardsElement;
 }
 
-function deleteCard (event) {
+function deleteCard(event) {
   const elementCard = event.target.closest(".card");
   elementCard.remove();
+}
+
+function toggleLike(event) {
+    const elementLike = event.target.closest(".card__like");
+    elementLike.classList.toggle("card__like_active");
 }
 
 popupСardAddSubmit.addEventListener('click', handleAddCard);
