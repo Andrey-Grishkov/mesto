@@ -75,21 +75,21 @@ function getCardsElement(item) {
 }
 
 function deleteCard(event) {
-  const elementCard = event.target.closest(".card");
-  elementCard.remove();
+  event.target.closest(".card").remove();
 }
 
 function toggleLike(event) {
-    const elementLike = event.target.closest(".card__like");
-    elementLike.classList.toggle("card__like_active");
+  event.target.classList.toggle("card__like_active")
 }
 
-popupСardAddSubmit.addEventListener('click', handleAddCard);
 popupProfileEditSubmit.addEventListener('submit', handleSubmitUserInfo);
 popupProfileEditCloseBtn.addEventListener('click', () => closePopup(popupProfileEdit));
+
+popupСardAddSubmit.addEventListener('click', handleAddCard);
 popupСardAddCloseBtn.addEventListener('click', () => closePopup(popupСardAdd));
 popupImageCloseBtn.addEventListener("click", () => closePopup(imagePopup));
 cardAddBtn.addEventListener('click', () => openPopup(popupСardAdd));
+
 profileEditBtn.addEventListener('click', () => {
   userNameInput.value = profileName.textContent;
   userAboutInput.value = profileUserAbout.textContent;
