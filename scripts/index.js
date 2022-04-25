@@ -95,3 +95,13 @@ profileEditBtn.addEventListener('click', () => {
   userAboutInput.value = profileUserAbout.textContent;
   openPopup(popupProfileEdit);
 });
+
+function overLayClose(event, popupType) {
+  if (event.target === event.currentTarget) {
+    popupType.classList.remove("popup_is-opened");
+  }
+}
+
+popupProfileEdit.addEventListener('click', () => overLayClose(event, popupProfileEdit));
+popupСardAdd.addEventListener('click', () => overLayClose(event, popupСardAdd));
+imagePopup.addEventListener('click', () => overLayClose(event, imagePopup));
