@@ -24,6 +24,11 @@ const imageBigSizeTitle = imagePopup.querySelector(".popup__image-title");
 
 function openPopup(popupType) {
   popupType.classList.add('popup_is-opened');
+  document.addEventListener('keydown', (event) => {
+    if (event.key==="Escape") {
+      popupType.classList.remove("popup_is-opened");
+    }
+  });
 }
 
 function closePopup(popupType) {
@@ -105,3 +110,7 @@ function overLayClose(event, popupType) {
 popupProfileEdit.addEventListener('click', () => overLayClose(event, popupProfileEdit));
 popupСardAdd.addEventListener('click', () => overLayClose(event, popupСardAdd));
 imagePopup.addEventListener('click', () => overLayClose(event, imagePopup));
+
+
+
+
