@@ -9,7 +9,9 @@ enableValidation({
 
 function enableValidation(config) {
     const forms = document.querySelectorAll(config.formSelector);
-    forms.forEach((form) => {
+
+    Array.from(forms).forEach((form) => {
+        
         form.addEventListener('input', (event) => handleFormInput(event, form, config));
     });
 }
