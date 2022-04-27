@@ -32,6 +32,7 @@ function openPopup(popupType) {
   document.addEventListener('keydown', (event) => {
     if (event.key==="Escape") {
       popupType.classList.remove("popup_is-opened");
+      deleteErrorAndInputs(inputErrors, inputs);
     }
   });
 }
@@ -104,6 +105,7 @@ function toggleLike(event) {
 function overLayClose(event, popupType) {
   if (event.target === event.currentTarget) {
     popupType.classList.remove("popup_is-opened");
+    deleteErrorAndInputs(inputErrors, inputs);
   }
 }
 
