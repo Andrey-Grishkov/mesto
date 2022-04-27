@@ -14,6 +14,7 @@ function enableValidation({formSelector, ...rest}) {
         e.preventDefault();
     });
         setEventListeners(form, rest);
+        toggleButton(form, rest);
     });
 }
 

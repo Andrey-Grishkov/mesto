@@ -22,6 +22,10 @@ const popupImageCloseBtn = imagePopup.querySelector(".popup__close");
 const imageBigSize = imagePopup.querySelector(".popup__image");
 const imageBigSizeTitle = imagePopup.querySelector(".popup__image-title");
 
+const inputErrors = document.querySelectorAll(".popup__error");
+const inputs = document.querySelectorAll(".popup__user-input");
+const submitButtons = document.querySelectorAll(".popup__button-submit");
+
 function openPopup(popupType) {
   popupType.classList.add('popup_is-opened');
   document.addEventListener('keydown', (event) => {
@@ -31,8 +35,17 @@ function openPopup(popupType) {
   });
 }
 
+function deleteErrorAndInputs(inputErrors, inputs, submitButtons) {
+  Array.from(inputErrors).forEach((error) => error.textContent = "");
+  Array.from(inputs).forEach((input) => {
+    input.classList.remove("popup__user-input_type_error")
+  });
+
+}
+
 function closePopup(popupType) {
   popupType.classList.remove("popup_is-opened");
+  deleteErrorAndInputs(inputErrors, inputs, submitButtons);
 }
 
 function handleSubmitUserInfo (event) {
