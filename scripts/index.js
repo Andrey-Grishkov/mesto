@@ -27,14 +27,20 @@ const inputs = document.querySelectorAll(".popup__user-input");
 
 function openPopup(popupType) {
   popupType.classList.add('popup_is-opened');
-  cardName.textContent ="nnn";
-  cardLinkImage.textContent ="mm";
-  document.addEventListener('keydown', (event) => {
-    if (event.key==="Escape") {
-      popupType.classList.remove("popup_is-opened");
-      deleteErrorAndInputs(inputErrors, inputs);
-    }
-  });
+  document.addEventListener('keydown', closeByEscape);
+}
+
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_is-opened');
+    closePopup(openedPopup);
+  }
+}
+
+function closePopup(popupType) {
+  document.removeEventListener('keydown', closeByEscape);
+  popupType.classList.remove('popup_is-opened');
+  deleteErrorAndInputs(inputErrors, inputs);
 }
 
 function deleteErrorAndInputs(inputErrors, inputs) {
@@ -45,10 +51,7 @@ function deleteErrorAndInputs(inputErrors, inputs) {
   });
 }
 
-function closePopup(popupType) {
-  popupType.classList.remove("popup_is-opened");
-  deleteErrorAndInputs(inputErrors, inputs);
-}
+
 
 function handleSubmitUserInfo (event) {
   event.preventDefault();
