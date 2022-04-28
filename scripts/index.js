@@ -40,9 +40,9 @@ function closeByEscape(evt) {
   }
 }
 
-function closePopup(popupType) {
+function closePopup(popup) {
   document.removeEventListener('keydown', closeByEscape);
-  popupType.classList.remove('popup_is-opened');
+  popup.classList.remove('popup_is-opened');
   deleteErrorAndInputs(inputErrors, inputs);
 }
 
@@ -116,24 +116,25 @@ function toggleLike(event) {
   event.target.classList.toggle("card__like_active")
 }
 
-function overLayClose(event, popupType) {
-  if (event.target === event.currentTarget) {
-    popupType.classList.remove("popup_is-opened");
-    deleteErrorAndInputs(inputErrors, inputs);
-  }
-}
+const popups = document.querySelectorAll('.popup')
 
-popupProfileEditSubmit.addEventListener('submit', handleSubmitUserInfo);
-popupProfileEditCloseBtn.addEventListener('click', () => closePopup(popupProfileEdit));
+popups.forEach((popup) => {
+  popup.addEventListener('mousedown', (evt) => {
+    if (evt.target.classList.contains('popup_is-opened')) {
+      closePopup(popup);
+    }
+    if (evt.target.classList.contains('popup__close')) {
+      closePopup(popup);
+    }
+  })
+})
+
+popupProfileEditSubmit.addEventListener('submit', handleSubmitUserInfo);;
 
 popupСardAddSubmit.addEventListener('click', handleAddCard);
-popupСardAddCloseBtn.addEventListener('click', () => closePopup(popupСardAdd));
-popupImageCloseBtn.addEventListener("click", () => closePopup(imagePopup));
+
 cardAddBtn.addEventListener('click', () => openPopup(popupСardAdd));
 
-popupProfileEdit.addEventListener('click', () => overLayClose(event, popupProfileEdit));
-popupСardAdd.addEventListener('click', () => overLayClose(event, popupСardAdd));
-imagePopup.addEventListener('click', () => overLayClose(event, imagePopup));
 
 profileEditBtn.addEventListener('click', () => {
   userNameInput.value = profileName.textContent;
