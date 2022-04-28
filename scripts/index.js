@@ -25,6 +25,9 @@ const imageBigSizeTitle = imagePopup.querySelector(".popup__image-title");
 const inputErrors = document.querySelectorAll(".popup__error");
 const inputs = document.querySelectorAll(".popup__user-input");
 
+const submitButtons = document.querySelectorAll(".popup__button-submit");
+const popupForms = document.querySelectorAll(".popup__form");
+
 function openPopup(popupType) {
   popupType.classList.add('popup_is-opened');
   document.addEventListener('keydown', closeByEscape);
@@ -51,8 +54,6 @@ function deleteErrorAndInputs(inputErrors, inputs) {
   });
 }
 
-
-
 function handleSubmitUserInfo (event) {
   event.preventDefault();
   profileName.textContent = userNameInput.value;
@@ -65,6 +66,16 @@ function handleAddCard (event) {
   const handleAddCardElement=getCardsElement({name:cardName.value, link:cardLinkImage.value});
   cardsContainer.prepend(handleAddCardElement);
   closePopup(popupСardAdd);
+  submitButtonDisabled (submitButtons, popupForms);
+}
+
+function submitButtonDisabled(submitButtons, popupForms) {
+  Array.from(popupForms).forEach((form) => {
+      Array.from(submitButtons).forEach((button) => {
+        button.disabled = !form.checkValidity();
+        button.classList.add("popup__button-submit_type_disabled");
+      });
+    });
 }
 
 function renderCards() {
