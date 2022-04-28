@@ -135,9 +135,9 @@ cardAddBtn.addEventListener('click', () => {
 });
 
 profileEditBtn.addEventListener('click', () => {
+  deleteErrorAndInputs(inputErrors, inputs)
   userNameInput.value = profileName.textContent;
   userAboutInput.value = profileUserAbout.textContent;
-  deleteErrorAndInputs(inputErrors, inputs)
   openPopup(popupProfileEdit);
 });
 
