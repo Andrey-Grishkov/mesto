@@ -3,14 +3,12 @@ const profileName = document.querySelector('.profile__name');
 const profileUserAbout = document.querySelector('.profile__user-about');
 
 const popupProfileEdit = document.querySelector('.popup_type_profile');
-const popupProfileEditCloseBtn = popupProfileEdit.querySelector('.popup__close');
 const popupProfileEditSubmit = popupProfileEdit.querySelector('.popup__form');
 const userNameInput = popupProfileEdit.querySelector('.popup__user-input_input_name');
 const userAboutInput = popupProfileEdit.querySelector('.popup__user-input_input_user-about');
 
 const cardAddBtn = document.querySelector('.profile__add');
 const popupСardAdd = document.querySelector('.popup_type_add-card');
-const popupСardAddCloseBtn = popupСardAdd.querySelector('.popup__close');
 const popupСardAddSubmit = popupСardAdd.querySelector('.popup__button-submit');
 const cardsContainer = document.querySelector(".cards");
 const templateCards = document.querySelector(".template-cards");
@@ -18,7 +16,6 @@ const cardName = popupСardAdd.querySelector('.popup__user-input_input_card-titl
 const cardLinkImage = popupСardAdd.querySelector('.popup__user-input_input_card-image');
 
 const imagePopup = document.querySelector(".popup_type_image");
-const popupImageCloseBtn = imagePopup.querySelector(".popup__close");
 const imageBigSize = imagePopup.querySelector(".popup__image");
 const imageBigSizeTitle = imagePopup.querySelector(".popup__image-title");
 
@@ -43,7 +40,6 @@ function closeByEscape(evt) {
 function closePopup(popup) {
   document.removeEventListener('keydown', closeByEscape);
   popup.classList.remove('popup_is-opened');
-  deleteErrorAndInputs(inputErrors, inputs);
 }
 
 function deleteErrorAndInputs(inputErrors, inputs) {
@@ -133,17 +129,17 @@ popupProfileEditSubmit.addEventListener('submit', handleSubmitUserInfo);;
 
 popupСardAddSubmit.addEventListener('click', handleAddCard);
 
-cardAddBtn.addEventListener('click', () => openPopup(popupСardAdd));
-
+cardAddBtn.addEventListener('click', () => {
+  deleteErrorAndInputs(inputErrors, inputs);
+  openPopup(popupСardAdd);
+});
 
 profileEditBtn.addEventListener('click', () => {
   userNameInput.value = profileName.textContent;
   userAboutInput.value = profileUserAbout.textContent;
+  deleteErrorAndInputs(inputErrors, inputs)
   openPopup(popupProfileEdit);
 });
-
-
-
 
 
 
