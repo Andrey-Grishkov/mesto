@@ -1,11 +1,12 @@
+import { openPopup, imagePopup, imageBigSize, imageBigSizeTitle} from './index2.js';
+
 export class CardItem {
+    _selector;
     _name;
     _link;
     _element;
 
-    constructor(data, selector) {
-        this._name = data.name;
-        this._link = data.link;
+    constructor(selector) {
         this._selector = selector;
     }
 
@@ -15,7 +16,7 @@ export class CardItem {
             .content
             .querySelector('.card')
             .cloneNode(true);
-        return cardItem;
+        this._element = cardItem;
     }
 
     _deleteCardHandler() {
@@ -26,18 +27,40 @@ export class CardItem {
         event.target.classList.toggle("card__like_active")
     }
 
-    getCardsElement() {
-        this._element = this._getItem();
-        this._element.querySelector('.card__title').textContent = this._name;
-        this._element.querySelector('.card__image').src = this._link;
-        this._element.querySelector('.card__image').alt = this._name;
+    _openImagePopup() {
+        imageBigSize.src = this._link;
+        imageBigSize.alt = this._name;
+        imageBigSizeTitle.textContent = this._name;
+        openPopup(imagePopup);
+    };
+
+    _setEventListeners() {
         this._element.querySelector('.card__delete').addEventListener('click', () =>{
             this._deleteCardHandler();
         });
         this._element.querySelector('.card__like').addEventListener('click', () =>{
             this._likeBtnHandler();
         });
-        return this._element;
+
+        this._element.querySelector('.card__image').addEventListener('click', () =>{
+            this._openImagePopup();
+        });
     }
 }
 
+export class UserCardItem extends CardItem {
+    constructor(data, selector) {
+        super(selector);
+        this._name = data.name;
+        this._link = data.link;
+    }
+
+    generateCard() {
+        super._getItem();
+        super._setEventListeners();
+        this._element.querySelector('.card__title').textContent = this._name;
+        this._element.querySelector('.card__image').src = this._link;
+        this._element.querySelector('.card__image').alt = this._name;
+        return this._element;
+    }
+}
