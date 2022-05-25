@@ -1,1 +1,63 @@
-export class CardItem {
+export const config = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__user-input',
+    inputErrorClass: 'popup__user-input_type_error',
+    errorClass: 'popup__error_visible',
+    submitButtonSelector: '.popup__button-submit',
+    inactiveButtonClass: 'popup__button-submit_type_disabled'
+}
+
+export class FormValidator {
+    _inputSelector;
+    _inputErrorClass;
+    _errorClass;
+    _buttonSubmit;
+    _inactiveButtonClass;
+    _formElement;
+
+    constructor(config, formElement) {
+        this._formSelector=config.formSelector;
+        this._inputSelector=config.inputSelector;
+        this._inputErrorClass=config.inputErrorClass;
+        this._errorClass=config.errorClass;
+        this._buttonSubmit=config.submitButtonSelector;
+        this._inactiveButtonClass=config.inactiveButtonClass;
+        this._formElement = formElement;
+
+    }
+
+    enableValidation() {
+        this._formElement.addEventListener('submit', (evt) => {
+            evt.preventDefault();
+        })
+        this._setEventListeners(this._formElement);
+        this._toggleButton(this._formElement);
+    }
+
+    _setEventListeners() {
+        const formInputs = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+        Array.from(formInputs).forEach((input) => {
+            input.addEventListener('input', (event) => this._handleFormInput(input));
+        });
+    }
+
+    _handleFormInput(input) {
+        const errorNode = document.querySelector(`#${input.id}-error`);
+        if (input.validity.valid) {
+            errorNode.textContent="";
+            input.classList.remove(this._inputErrorClass);
+            this._toggleButton();
+        } else {
+            errorNode.textContent=input.validationMessage;
+            errorNode.classList.add(this._errorClass);
+            input.classList.add(this._inputErrorClass);
+            this._toggleButton();
+        }
+    }
+
+    _toggleButton() {
+        const buttonSubmit = this._formElement.querySelector(this._buttonSubmit);
+        buttonSubmit.disabled = !this._formElement.checkValidity();
+        buttonSubmit.classList.toggle(this._inactiveButtonClass, !this._formElement.checkValidity());
+    }
+}

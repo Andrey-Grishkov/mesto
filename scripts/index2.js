@@ -1,5 +1,6 @@
 import { initialCards } from './initialCards.js';
 import { UserCardItem } from './Card.js';
+import { FormValidator, config } from './FormValidator2.js';
 
 const profileEditBtn = document.querySelector('.profile__edit');
 const profileName = document.querySelector('.profile__name');
@@ -26,7 +27,17 @@ const inputErrors = document.querySelectorAll(".popup__error");
 const inputs = document.querySelectorAll(".popup__user-input");
 
 const submitButtons = document.querySelectorAll(".popup__button-submit");
+
 const popupForms = document.querySelectorAll(".popup__form");
+
+const profileEditForm = popupProfileEdit.querySelector(".popup__form");
+const addCardForm = popupСardAdd.querySelector(".popup__form");
+const profileEditBtnSubmit = popupProfileEdit.querySelector(".popup__button-submit");
+
+const profileEditFormValidator = new FormValidator(config, profileEditForm);
+const addCardFormValidator = new FormValidator(config, addCardForm);
+profileEditFormValidator.enableValidation();
+addCardFormValidator.enableValidation();
 
 initialCards.forEach((item) => {
     const cardList = new UserCardItem (item, '.template-cards');
@@ -74,11 +85,9 @@ function handleAddCard(evt) {
     const cardUser = new UserCardItem ({name: cardName.value, link: cardLinkImage.value}, '.template-cards');
     const cardElement = cardUser.generateCard();
     cardsContainer.prepend(cardElement);
-    closePopup(popupCardAdd);
+    closePopup(popupСardAdd);
     submitButtonDisabled (submitButtons, popupForms);
 }
-
-
 
 function submitButtonDisabled(submitButtons, popupForms) {
     Array.from(popupForms).forEach((form) => {
@@ -102,7 +111,7 @@ popups.forEach((popup) => {
     })
 })
 
-popupProfileEditSubmit.addEventListener('submit', handleSubmitUserInfo);;
+popupProfileEditSubmit.addEventListener('submit', handleSubmitUserInfo);
 
 popupСardAddSubmit.addEventListener('click', handleAddCard);
 
@@ -115,6 +124,8 @@ profileEditBtn.addEventListener('click', () => {
     deleteErrorAndInputs(inputErrors, inputs)
     userNameInput.value = profileName.textContent;
     userAboutInput.value = profileUserAbout.textContent;
+    profileEditBtnSubmit.disabled=true;
+    profileEditBtnSubmit.classList.add("popup__button-submit_type_disabled");
     openPopup(popupProfileEdit);
 });
 
