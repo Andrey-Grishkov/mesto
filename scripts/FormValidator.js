@@ -44,16 +44,16 @@ export class FormValidator {
 
   _handleFormInput(input) {
     const errorNode = document.querySelector(`#${input.id}-error`);
-      if (input.validity.valid) {
-        errorNode.textContent="";
-        input.classList.remove(this._inputErrorClass);
-        this._toggleActiveBtnSubmit();
-      } else {
-          errorNode.textContent=input.validationMessage;
-          errorNode.classList.add(this._errorClass);
-          input.classList.add(this._inputErrorClass);
-          this._toggleActiveBtnSubmit();
-        }
+    if (input.validity.valid) {
+      errorNode.textContent="";
+      input.classList.remove(this._inputErrorClass);
+      this._toggleActiveBtnSubmit();
+    } else {
+      errorNode.textContent=input.validationMessage;
+      errorNode.classList.add(this._errorClass);
+      input.classList.add(this._inputErrorClass);
+      this._toggleActiveBtnSubmit();
+    }
   }
 
   deleteErrorAndInputs() {
