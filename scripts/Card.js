@@ -1,13 +1,15 @@
 import { openPopup, imagePopup, imageBigSize, imageBigSizeTitle} from './index.js';
 
-class CardItem {
+export class Card {
   _selector;
   _name;
   _link;
   _element;
 
-  constructor(selector) {
+  constructor(data, selector) {
     this._selector = selector;
+    this._name = data.name;
+    this._link = data.link;
   }
 
   _getItem() {
@@ -19,12 +21,23 @@ class CardItem {
     this._element = cardItem;
   }
 
+  generateCard() {
+    this._getItem();
+    this._setEventListeners();
+    this._ImageCard = this._element.querySelector('.card__image');
+    this._element.querySelector('.card__title').textContent = this._name;
+    this._ImageCard.src = this._link;
+    this._ImageCard.alt = this._name;
+    return this._element;
+  }
+
   _deleteCardHandler() {
     this._element.remove();
+    this._element = null;
   }
 
   _likeBtnHandler() {
-    event.target.classList.toggle("card__like_active")
+    this._element.querySelector('.card__like').classList.toggle("card__like_active")
   }
 
   _openImagePopup() {
@@ -44,22 +57,5 @@ class CardItem {
     this._element.querySelector('.card__image').addEventListener('click', () =>{
       this._openImagePopup();
     });
-  }
-}
-
-export class UserCardItem extends CardItem {
-  constructor(data, selector) {
-    super(selector);
-    this._name = data.name;
-    this._link = data.link;
-  }
-
-  generateCard() {
-    super._getItem();
-    super._setEventListeners();
-    this._element.querySelector('.card__title').textContent = this._name;
-    this._element.querySelector('.card__image').src = this._link;
-    this._element.querySelector('.card__image').alt = this._name;
-    return this._element;
   }
 }

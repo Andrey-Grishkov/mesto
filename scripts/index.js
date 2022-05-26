@@ -1,5 +1,5 @@
 import { initialCards } from './initialCards.js';
-import { UserCardItem } from './Card.js';
+import { Card } from './Card.js';
 import { FormValidator, config } from './FormValidator.js';
 
 const profileEditBtn = document.querySelector('.profile__edit');
@@ -40,7 +40,7 @@ profileEditFormValidator.enableValidation();
 addCardFormValidator.enableValidation();
 
 initialCards.forEach((item) => {
-  const cardList = new UserCardItem (item, '.template-cards');
+  const cardList = new Card (item, '.template-cards');
   const cardElement = cardList.generateCard();
   cardsContainer.append(cardElement);
 });
@@ -79,7 +79,7 @@ function handleSubmitUserInfo (event) {
 
 function handleAddCard(evt) {
   evt.preventDefault();
-  const cardUser = new UserCardItem ({name: cardName.value, link: cardLinkImage.value}, '.template-cards');
+  const cardUser = new Card ({name: cardName.value, link: cardLinkImage.value}, '.template-cards');
   const cardElement = cardUser.generateCard();
   cardsContainer.prepend(cardElement);
   closePopup(popupСardAdd);
