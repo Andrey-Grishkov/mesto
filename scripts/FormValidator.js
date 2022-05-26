@@ -14,6 +14,8 @@ export class FormValidator {
   _buttonSubmit;
   _inactiveButtonClass;
   _formElement;
+  _inputError;
+  _formInputs;
 
   constructor(config, formElement) {
     this._inputSelector=config.inputSelector;
@@ -22,6 +24,7 @@ export class FormValidator {
     this._buttonSubmit=config.submitButtonSelector;
     this._inactiveButtonClass=config.inactiveButtonClass;
     this._formElement = formElement;
+    this._inputError = Array.from(this._formElement.querySelectorAll('popup__error'));
     this._formInputs = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     }
 
@@ -51,6 +54,21 @@ export class FormValidator {
           input.classList.add(this._inputErrorClass);
           this._toggleActiveBtnSubmit();
         }
+  }
+
+  deleteErrorAndInputs() {
+    this._formInputs.forEach((input) => {
+      const errorNode = document.querySelector(`#${input.id}-error`);
+      errorNode.textContent = '';
+      input.classList.remove(this._inputErrorClass);
+      input.value="";
+    });
+  }
+
+  submitButtonDisabled() {
+    const buttonSubmit = this._formElement.querySelector(this._buttonSubmit);
+    buttonSubmit.disabled = !this._formElement.checkValidity();
+    buttonSubmit.classList.add("popup__button-submit_type_disabled");
   }
 
   _toggleActiveBtnSubmit() {
