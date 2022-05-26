@@ -22,38 +22,38 @@ export class FormValidator {
     this._buttonSubmit=config.submitButtonSelector;
     this._inactiveButtonClass=config.inactiveButtonClass;
     this._formElement = formElement;
+    this._formInputs = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     }
 
   enableValidation() {
     this._formElement.addEventListener('submit', (evt) => {
       evt.preventDefault();
     });
-    this._setEventListeners(this._formElement);
-    this._toggleButton(this._formElement);
+    this._setEventListeners();
+    this._toggleActiveBtnSubmit();
   }
 
   _setEventListeners() {
-    const formInputs = Array.from(this._formElement.querySelectorAll(this._inputSelector));
-      Array.from(formInputs).forEach((input) => {
-        input.addEventListener('input', (event) => this._handleFormInput(input));
-      });
-    }
+    this._formInputs.forEach((input) => {
+      input.addEventListener('input', (event) => this._handleFormInput(input));
+    });
+  }
 
   _handleFormInput(input) {
     const errorNode = document.querySelector(`#${input.id}-error`);
       if (input.validity.valid) {
         errorNode.textContent="";
         input.classList.remove(this._inputErrorClass);
-        this._toggleButton();
-        } else {
-        errorNode.textContent=input.validationMessage;
-        errorNode.classList.add(this._errorClass);
-        input.classList.add(this._inputErrorClass);
-        this._toggleButton();
-      }
+        this._toggleActiveBtnSubmit();
+      } else {
+          errorNode.textContent=input.validationMessage;
+          errorNode.classList.add(this._errorClass);
+          input.classList.add(this._inputErrorClass);
+          this._toggleActiveBtnSubmit();
+        }
   }
 
-  _toggleButton() {
+  _toggleActiveBtnSubmit() {
     const buttonSubmit = this._formElement.querySelector(this._buttonSubmit);
     buttonSubmit.disabled = !this._formElement.checkValidity();
     buttonSubmit.classList.toggle(this._inactiveButtonClass, !this._formElement.checkValidity());
