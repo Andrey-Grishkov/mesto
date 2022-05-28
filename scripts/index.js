@@ -1,6 +1,15 @@
 import { initialCards } from './initialCards.js';
 import { Card } from './Card.js';
-import { FormValidator, config } from './FormValidator.js';
+import { FormValidator } from './FormValidator.js';
+
+export const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__user-input',
+  inputErrorClass: 'popup__user-input_type_error',
+  errorClass: 'popup__error_visible',
+  submitButtonSelector: '.popup__button-submit',
+  inactiveButtonClass: 'popup__button-submit_type_disabled'
+}
 
 const profileEditBtn = document.querySelector('.profile__edit');
 const profileName = document.querySelector('.profile__name');
