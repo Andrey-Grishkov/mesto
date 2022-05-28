@@ -5,6 +5,7 @@ export class Card {
   _name;
   _link;
   _element;
+  _like;
 
   constructor(data, selector) {
     this._selector = selector;
@@ -24,10 +25,11 @@ export class Card {
   generateCard() {
     this._getItem();
     this._setEventListeners();
-    this._ImageCard = this._element.querySelector('.card__image');
+    this._imageCard = this._element.querySelector('.card__image');
     this._element.querySelector('.card__title').textContent = this._name;
-    this._ImageCard.src = this._link;
-    this._ImageCard.alt = this._name;
+    this._imageCard.src = this._link;
+    this._imageCard.alt = this._name;
+    this._like = this._element.querySelector('.card__like');
     return this._element;
   }
 
@@ -37,7 +39,7 @@ export class Card {
   }
 
   _likeBtnHandler() {
-    this._element.querySelector('.card__like').classList.toggle("card__like_active")
+    this._like.classList.toggle("card__like_active")
   }
 
   _openImagePopup() {
