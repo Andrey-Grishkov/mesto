@@ -94,9 +94,8 @@ cardAddBtn.addEventListener('click', () => {
 
 profileEditBtn.addEventListener('click', () => {
   profileEditFormValidator.deleteErrorAndInputs();
+  profileEditFormValidator.submitButtonDisabled();
   userNameInput.value = profileName.textContent;
   userAboutInput.value = profileUserAbout.textContent;
-  profileEditBtnSubmit.disabled=true;
-  profileEditBtnSubmit.classList.add("popup__button-submit_type_disabled");
   openPopup(popupProfileEdit);
 });
