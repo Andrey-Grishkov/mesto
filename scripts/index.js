@@ -34,19 +34,19 @@ profileEditFormValidator.enableValidation();
 cardAddFormValidator.enableValidation();
 
 initialCards.forEach((item) => {
-  const cardItem = new Card (item, '.template-cards');
-  cardsContainer.append(createCard(cardItem));
+  cardsContainer.append(createCard(item));
 });
 
 function handleAddCard(evt) {
   evt.preventDefault();
-  const card = new Card ({name: cardName.value, link: cardLinkImage.value}, '.template-cards');
-  cardsContainer.prepend(createCard(card));
+  const item = {name: cardName.value, link: cardLinkImage.value};
+  cardsContainer.prepend(createCard(item));
   closePopup(popupСardAdd);
   cardAddFormValidator.submitButtonDisabled();
 }
 
-function createCard(card) {
+function createCard(item) {
+  const card = new Card (item, '.template-cards');;
   const cardElement = card.generateCard();
   return cardElement;
 }
