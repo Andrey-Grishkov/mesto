@@ -2,6 +2,7 @@ import './pages/index.css';
 
 import { initialCards } from './scripts/initialCards.js';
 import { Card } from './scripts/Card.js';
+import { Section } from './scripts/Section.js';
 import { FormValidator } from './scripts/FormValidator.js';
 
 export const config = {
@@ -44,9 +45,6 @@ const cardAddFormValidator = new FormValidator(config, formAddCard);
 profileEditFormValidator.enableValidation();
 cardAddFormValidator.enableValidation();
 
-initialCards.forEach((item) => {
-    cardsContainer.append(createCard(item));
-});
 
 function handleAddCard(evt) {
     evt.preventDefault();
@@ -61,6 +59,13 @@ function createCard(item) {
     const cardElement = card.generateCard();
     return cardElement;
 }
+
+const section = new Section( {items: initialCards, renderer: (item) => {
+    const card = createCard(item);
+    section.addItem(card);
+}}, '.cards')
+
+section.renderCard();
 
 export function openPopup(popupType) {
     popupType.classList.add('popup_is-opened');
