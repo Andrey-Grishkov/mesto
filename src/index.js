@@ -46,14 +46,6 @@ profileEditFormValidator.enableValidation();
 cardAddFormValidator.enableValidation();
 
 
-function handleAddCard(evt) {
-    evt.preventDefault();
-    const item = {name: cardName.value, link: cardLinkImage.value};
-    cardsContainer.prepend(createCard(item));
-    closePopup(popupСardAdd);
-    cardAddFormValidator.submitButtonDisabled();
-}
-
 function createCard(item) {
     const card = new Card (item, '.template-cards');;
     const cardElement = card.generateCard();
@@ -62,10 +54,18 @@ function createCard(item) {
 
 const section = new Section( {items: initialCards, renderer: (item) => {
     const card = createCard(item);
-    section.addItem(card);
+    section.addItem(card, false);
 }}, '.cards')
 
 section.renderCard();
+
+function handleAddCard(evt) {
+    evt.preventDefault();
+    const item = {name: cardName.value, link: cardLinkImage.value};
+    section.addItem(createCard(item), true);
+    closePopup(popupСardAdd);
+    cardAddFormValidator.submitButtonDisabled();
+}
 
 export function openPopup(popupType) {
     popupType.classList.add('popup_is-opened');
