@@ -3,6 +3,7 @@ import './pages/index.css';
 import { initialCards } from './scripts/initialCards.js';
 import { Card } from './scripts/Card.js';
 import { Section } from './scripts/Section.js';
+import { UserInfo } from './scripts/UserInfo.js';
 import { FormValidator } from './scripts/FormValidator.js';
 
 export const config = {
@@ -84,10 +85,16 @@ function closePopup(popup) {
     popup.classList.remove('popup_is-opened');
 }
 
+const userInfo = new UserInfo('.profile__name', '.profile__user-about');
+
+
 function handleSubmitUserInfo (event) {
     event.preventDefault();
-    profileName.textContent = userNameInput.value;
-    profileUserAbout.textContent = userAboutInput.value;
+    const userData = {
+        userNameInput: userNameInput.value,
+        userAboutInput: userAboutInput.value
+    }
+    userInfo.setUserInfo(userData);
     closePopup(popupProfileEdit);
 }
 
@@ -111,7 +118,8 @@ cardAddBtn.addEventListener('click', () => {
 profileEditBtn.addEventListener('click', () => {
     profileEditFormValidator.deleteErrorAndInputs();
     profileEditFormValidator.submitButtonDisabled();
-    userNameInput.value = profileName.textContent;
-    userAboutInput.value = profileUserAbout.textContent;
+    const userData = userInfo.getUserInfo();
+    userNameInput.value = userData.userNameInput;
+    userAboutInput.value = userData.userAboutInput;
     openPopup(popupProfileEdit);
 });
