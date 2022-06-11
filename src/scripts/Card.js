@@ -1,16 +1,16 @@
-import { openPopup, imagePopup, imageBigSize, imageBigSizeTitle} from '../index.js';
-
 export class Card {
   _selector;
   _name;
   _link;
   _element;
   _like;
+  _handleCardClick;
 
-  constructor(data, selector) {
+  constructor(data, selector, handleCardClick) {
     this._selector = selector;
     this._name = data.name;
     this._link = data.link;
+    this._handleCardClick = handleCardClick;
   }
 
   _getItem() {
@@ -42,12 +42,14 @@ export class Card {
     this._like.classList.toggle("card__like_active")
   }
 
+  /*
   _openImagePopup() {
     imageBigSize.src = this._link;
     imageBigSize.alt = this._name;
     imageBigSizeTitle.textContent = this._name;
-    openPopup(imagePopup);
+    openPopup(imagePopupSelector);
   };
+*/
 
   _setEventListeners() {
     this._element.querySelector('.card__delete').addEventListener('click', () =>{
@@ -57,7 +59,7 @@ export class Card {
       this._likeBtnHandler();
     });
     this._element.querySelector('.card__image').addEventListener('click', () =>{
-      this._openImagePopup();
+      this._handleCardClick(this._name, this._link);
     });
   }
 }

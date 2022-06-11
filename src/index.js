@@ -23,18 +23,21 @@ const profileName = document.querySelector('.profile__name');
 const profileUserAbout = document.querySelector('.profile__user-about');
 
 const popupProfileEdit = document.querySelector('.popup_type_profile');
+const popupProfileEditSelector = '.popup_type_profile';
 const popupProfileEditSubmit = popupProfileEdit.querySelector('.popup__form');
 const userNameInput = popupProfileEdit.querySelector('.popup__user-input_input_name');
 const userAboutInput = popupProfileEdit.querySelector('.popup__user-input_input_user-about');
 
 const cardAddBtn = document.querySelector('.profile__add');
 const popupСardAdd = document.querySelector('.popup_type_add-card');
+const popupСardAddSelector = '.popup_type_add-card';
 const popupСardAddSubmit = popupСardAdd.querySelector('.popup__button-submit');
 const cardsContainer = document.querySelector(".cards");
 const cardName = popupСardAdd.querySelector('.popup__user-input_input_card-title');
 const cardLinkImage = popupСardAdd.querySelector('.popup__user-input_input_card-image');
 
 export const imagePopup = document.querySelector(".popup_type_image");
+export const imagePopupSelector = ".popup_type_image";
 export const imageBigSize = imagePopup.querySelector(".popup__image");
 export const imageBigSizeTitle = imagePopup.querySelector(".popup__image-title");
 
@@ -49,9 +52,14 @@ const cardAddFormValidator = new FormValidator(config, formAddCard);
 profileEditFormValidator.enableValidation();
 cardAddFormValidator.enableValidation();
 
+const popupWithImage = new PopupWithImage(imagePopupSelector, imageBigSize, imageBigSizeTitle);
+popupWithImage.setEventListeners();
+
 
 function createCard(item) {
-    const card = new Card (item, '.template-cards');;
+    const card = new Card (item, '.template-cards', ()=>{
+        popupWithImage.openPopupWithImage(item.name, item.link);
+    });
     const cardElement = card.generateCard();
     return cardElement;
 }
@@ -67,25 +75,37 @@ function handleAddCard(evt) {
     evt.preventDefault();
     const item = {name: cardName.value, link: cardLinkImage.value};
     section.addItem(createCard(item), true);
-    closePopup(popupСardAdd);
+    closePopup(popupСardAddSelector);
     cardAddFormValidator.submitButtonDisabled();
 }
 
 export function openPopup(popupType) {
+    const popupOpener = new Popup (popupType);
+    popupOpener.open();
+
+    /*
     popupType.classList.add('popup_is-opened');
     document.addEventListener('keydown', closeByEscape);
+     */
 }
 
+/*
 function closeByEscape(evt) {
     if (evt.key === 'Escape') {
         const openedPopup = document.querySelector('.popup_is-opened');
         closePopup(openedPopup);
     }
 }
+*/
 
 function closePopup(popup) {
+    const popupCloser = new Popup (popup);
+    popupCloser.close();
+
+    /*
     document.removeEventListener('keydown', closeByEscape);
     popup.classList.remove('popup_is-opened');
+    */
 }
 
 const userInfo = new UserInfo('.profile__name', '.profile__user-about');
@@ -98,9 +118,10 @@ function handleSubmitUserInfo (event) {
         userAboutInput: userAboutInput.value
     }
     userInfo.setUserInfo(userData);
-    closePopup(popupProfileEdit);
+    closePopup(popupProfileEditSelector);
 }
 
+/*
 popups.forEach((popup) => {
     popup.addEventListener('mousedown', (evt) => {
         if (evt.target.classList.contains('popup_is-opened')||evt.target.classList.contains('popup__close')) {
@@ -108,14 +129,14 @@ popups.forEach((popup) => {
         }
     })
 });
-
+*/
 popupProfileEditSubmit.addEventListener('submit', handleSubmitUserInfo);
 
 popupСardAddSubmit.addEventListener('click', handleAddCard);
 
 cardAddBtn.addEventListener('click', () => {
     cardAddFormValidator.deleteErrorAndInputs();
-    openPopup(popupСardAdd);
+    openPopup(popupСardAddSelector);
 });
 
 profileEditBtn.addEventListener('click', () => {
@@ -124,5 +145,5 @@ profileEditBtn.addEventListener('click', () => {
     const userData = userInfo.getUserInfo();
     userNameInput.value = userData.userNameInput;
     userAboutInput.value = userData.userAboutInput;
-    openPopup(popupProfileEdit);
+    openPopup(popupProfileEditSelector);
 });
