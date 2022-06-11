@@ -19,8 +19,8 @@ export const config = {
 }
 
 const profileEditBtn = document.querySelector('.profile__edit');
-const profileName = document.querySelector('.profile__name');
-const profileUserAbout = document.querySelector('.profile__user-about');
+const profileNameSelector = '.profile__name';
+const profileUserAboutSelector = '.profile__user-about';
 
 const popupProfileEdit = document.querySelector('.popup_type_profile');
 const popupProfileEditSelector = '.popup_type_profile';
@@ -79,33 +79,14 @@ function handleAddCard(evt) {
     cardAddFormValidator.submitButtonDisabled();
 }
 
-export function openPopup(popupType) {
+function openPopup(popupType) {
     const popupOpener = new Popup (popupType);
-    popupOpener.open();
-
-    /*
-    popupType.classList.add('popup_is-opened');
-    document.addEventListener('keydown', closeByEscape);
-     */
+    popupOpener.open()
 }
-
-/*
-function closeByEscape(evt) {
-    if (evt.key === 'Escape') {
-        const openedPopup = document.querySelector('.popup_is-opened');
-        closePopup(openedPopup);
-    }
-}
-*/
 
 function closePopup(popup) {
     const popupCloser = new Popup (popup);
     popupCloser.close();
-
-    /*
-    document.removeEventListener('keydown', closeByEscape);
-    popup.classList.remove('popup_is-opened');
-    */
 }
 
 const userInfo = new UserInfo('.profile__name', '.profile__user-about');
@@ -121,15 +102,6 @@ function handleSubmitUserInfo (event) {
     closePopup(popupProfileEditSelector);
 }
 
-/*
-popups.forEach((popup) => {
-    popup.addEventListener('mousedown', (evt) => {
-        if (evt.target.classList.contains('popup_is-opened')||evt.target.classList.contains('popup__close')) {
-            closePopup(popup);
-        }
-    })
-});
-*/
 popupProfileEditSubmit.addEventListener('submit', handleSubmitUserInfo);
 
 popupСardAddSubmit.addEventListener('click', handleAddCard);
@@ -138,6 +110,8 @@ cardAddBtn.addEventListener('click', () => {
     cardAddFormValidator.deleteErrorAndInputs();
     openPopup(popupСardAddSelector);
 });
+
+
 
 profileEditBtn.addEventListener('click', () => {
     profileEditFormValidator.deleteErrorAndInputs();

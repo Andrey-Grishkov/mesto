@@ -35,21 +35,11 @@ export class Card {
 
   _deleteCardHandler() {
     this._element.remove();
-    this._element = null;
   }
 
   _likeBtnHandler() {
     this._like.classList.toggle("card__like_active")
   }
-
-  /*
-  _openImagePopup() {
-    imageBigSize.src = this._link;
-    imageBigSize.alt = this._name;
-    imageBigSizeTitle.textContent = this._name;
-    openPopup(imagePopupSelector);
-  };
-*/
 
   _setEventListeners() {
     this._element.querySelector('.card__delete').addEventListener('click', () =>{
