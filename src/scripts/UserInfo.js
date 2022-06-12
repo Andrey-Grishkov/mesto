@@ -1,4 +1,7 @@
 export class UserInfo {
+  _userNameInput;
+  _userAboutInput;
+
   constructor(userNameInputSelector, userAboutInputSelector) {
     this._userNameInput = document.querySelector(userNameInputSelector);
     this._userAboutInput = document.querySelector(userAboutInputSelector);
