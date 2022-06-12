@@ -64,7 +64,7 @@ const userInfo = new UserInfo('.profile__name', '.profile__user-about');
 
 const handleAddCard = new PopupWithForm({
   popupSelector: popupСardAddSelector,
-  handleFormSubmit: (data) => {
+  submitHandler: (data) => {
     section.addItem(createCard(data), true);
     handleAddCard.close();
     cardAddFormValidator.submitButtonDisabled();
@@ -75,7 +75,7 @@ handleAddCard.setEventListeners();
 
 const handleSubmitUserInfo = new PopupWithForm({
   popupSelector: popupProfileEditSelector,
-  handleFormSubmit: (data) => {
+  submitHandler: (data) => {
     userInfo.setUserInfo(data);
     handleSubmitUserInfo.close();
   }

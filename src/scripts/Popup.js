@@ -12,6 +12,7 @@ export class Popup {
 
   close() {
     document.removeEventListener('keydown', this._handleEscClose);
+    document.querySelector('.popup__button-submit').classList.add('.popup__button-submit_type_disabled');
     this._popup.classList.remove('popup_is-opened');
   }
 
