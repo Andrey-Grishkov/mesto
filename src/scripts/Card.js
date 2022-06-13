@@ -8,7 +8,7 @@ export class Card {
 
   constructor(data, selector, handleCardClick) {
     this._selector = selector;
-    this._name = data.name;
+    this._name = data.placeName;
     this._link = data.link;
     this._handleCardClick = handleCardClick;
   }

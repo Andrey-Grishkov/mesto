@@ -22,8 +22,8 @@ const profileEditBtn = document.querySelector('.profile__edit');
 
 const popupProfileEdit = document.querySelector('.popup_type_profile');
 const popupProfileEditSelector = '.popup_type_profile';
-const userNameInput = popupProfileEdit.querySelector('.popup__user-input_input_name');
-const userAboutInput = popupProfileEdit.querySelector('.popup__user-input_input_user-about');
+const userName = popupProfileEdit.querySelector('.popup__user-input_input_name');
+const AboutInformation = popupProfileEdit.querySelector('.popup__user-input_input_user-about');
 
 const cardAddBtn = document.querySelector('.profile__add');
 const popupСardAdd = document.querySelector('.popup_type_add-card');
@@ -71,7 +71,7 @@ const handleAddCard = new PopupWithForm({
   }
 });
 
-handleAddCard.setEventListeners();
+handleAddCard.setEventListenersPopupWithForm();
 
 const handleSubmitUserInfo = new PopupWithForm({
   popupSelector: popupProfileEditSelector,
@@ -81,7 +81,7 @@ const handleSubmitUserInfo = new PopupWithForm({
   }
 });
 
-handleSubmitUserInfo.setEventListeners();
+handleSubmitUserInfo.setEventListenersPopupWithForm();
 
 cardAddBtn.addEventListener('click', () => {
   cardAddFormValidator.deleteErrorAndInputs();
@@ -92,7 +92,7 @@ profileEditBtn.addEventListener('click', () => {
   profileEditFormValidator.deleteErrorAndInputs();
   profileEditFormValidator.submitButtonDisabled();
   const userData = userInfo.getUserInfo();
-  userNameInput.value = userData.userNameInput;
-  userAboutInput.value = userData.userAboutInput;
+  userName.value = userData.userName;
+  AboutInformation.value = userData.AboutInformation;
   handleSubmitUserInfo.open();
 });

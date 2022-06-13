@@ -11,9 +11,8 @@ export class Popup {
   }
 
   close() {
-    document.removeEventListener('keydown', this._handleEscClose);
-    document.querySelector('.popup__button-submit').classList.add('.popup__button-submit_type_disabled');
     this._popup.classList.remove('popup_is-opened');
+    document.removeEventListener('keydown', this._handleEscClose);
   }
 
   _handleEscClose(evt) {
@@ -28,7 +27,7 @@ export class Popup {
         this.close();
       }
       document.addEventListener('keydown', (evt) => {
-        this._handleEscClose(evt)
+        this._handleEscClose(evt);
       });
     });
   }
