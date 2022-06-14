@@ -10,7 +10,7 @@ export class UserInfo {
   getUserInfo () {
     const data = {
       userName: this._userName.textContent,
-      AboutInformation: this._userAboutInformation.textContent
+      aboutInformation: this._userAboutInformation.textContent
     }
     return data;
   }

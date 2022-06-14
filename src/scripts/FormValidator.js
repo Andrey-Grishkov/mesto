@@ -1,4 +1,4 @@
-import { config } from '../index.js';
+import { config } from './constants.js';
 
 export class FormValidator {
   _inputSelector;
