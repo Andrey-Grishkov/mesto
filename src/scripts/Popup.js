@@ -4,6 +4,7 @@ export class Popup {
   constructor(popupSelector) {
     this._popup = document.querySelector(popupSelector);
     this._handleEscClose = this._handleEscClose.bind(this);
+    this._buttonSubmit = this._popup.querySelector('.popup__button-submit');
   }
 
   open() {
@@ -28,5 +29,9 @@ export class Popup {
         this.close();
       }
     });
+  }
+
+  handleSubmitText(text) {
+    this._buttonSubmit.textContent = text;
   }
 }

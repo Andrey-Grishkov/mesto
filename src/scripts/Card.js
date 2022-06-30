@@ -6,11 +6,13 @@ export class Card {
   _like;
   _handleCardClick;
 
-  constructor(data, selector, handleCardClick) {
+  constructor(data, selector, {handleCardClick},{handleCardDelete}) {
     this._selector = selector;
-    this._name = data.placeName;
+    this._name = data.name;
     this._link = data.link;
     this._handleCardClick = handleCardClick;
+    this._handleCardDelete = handleCardDelete;
+
   }
 
   _getItem() {
@@ -33,7 +35,8 @@ export class Card {
     return this._element;
   }
 
-  _deleteCardHandler() {
+  deleteCardHandler() {
+    console.log('pop3')
     this._element.remove();
     this._element = null;
   }
@@ -44,7 +47,7 @@ export class Card {
 
   _setEventListeners() {
     this._element.querySelector('.card__delete').addEventListener('click', () =>{
-      this._deleteCardHandler();
+      this._handleCardDelete();
     });
     this._element.querySelector('.card__like').addEventListener('click', () =>{
       this._likeBtnHandler();

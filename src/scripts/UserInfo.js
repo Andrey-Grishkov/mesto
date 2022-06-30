@@ -1,3 +1,5 @@
+import {userName} from "./constants";
+
 export class UserInfo {
   _userName;
   _userAboutInformation;
@@ -15,8 +17,8 @@ export class UserInfo {
     return data;
   }
 
-  setUserInfo(data) {
-    this._userName.textContent = data.userName;
-    this._userAboutInformation.textContent = data.userAboutInformation;
+  setUserInfo(res) {
+    this._userName.textContent = res.name;
+    this._userAboutInformation.textContent = res.about;
   }
 }

@@ -1,8 +1,9 @@
+/*
 import './pages/index.css';
 
 import {config, aboutInformation, imagePopupSelector, imageBigSize, imageBigSizeTitle,
-  popupProfileEditSelector, popupСardAddSelector, profileEditBtn, profileEditForm,
-  cardAddBtn, formAddCard, userName} from './scripts/constants'
+    popupProfileEditSelector, popupСardAddSelector, profileEditBtn, profileEditForm,
+    cardAddBtn, formAddCard, userName} from './scripts/constants'
 
 import { Card } from './scripts/Card.js';
 import { Section } from './scripts/Section.js';
@@ -21,11 +22,8 @@ cardAddFormValidator.enableValidation();
 const popupWithImage = new PopupWithImage(imagePopupSelector, imageBigSize, imageBigSizeTitle);
 popupWithImage.setEventListeners();
 
-const popupConfirmSelector = '.popup_type_delete-card';
 
-const popupWithConfirm = new PopupWithConfirm(popupConfirmSelector);
-
-popupWithConfirm.setEventListeners();
+const popupConfirmSelector = 'popup_type_delete-card';
 
 
 const headers = {
@@ -38,29 +36,28 @@ const api = new Api(
     {headers},
     '045152ba8c58368e320157ab');
 
+
 function createCard(item) {
-  const card = new Card (item, '.template-cards',
-    {handleCardClick: ()=>{
-      popupWithImage.openPopupWithImage(item.name, item.link);
-    }}, {
-          handleCardDelete: () => {
-              popupWithConfirm.open(card);
-              popupWithConfirm.setHandleSubmit(() => {
-                  console.log('popi')
-                  api.deleteCard(item._id)
-                      .then(() => {
-                          console.log('pop2')
-                          card.deleteCardHandler();
-                      })
-              })
-          }
-      }
-  )
-  const cardElement = card.generateCard();
-  return cardElement;
+    const card = new Card (
+        {data: item},
+        {selector: '.template-cards'},
+        {handleCardClick: ()=>{
+                popupWithImage.openPopupWithImage(item.name, item.link);
+            }},
+        {
+            handleCardDelete: () => {
+                popupWithConfirm.open(card);
+                popupWithConfirm.setHandleSubmit(() => {
+                    api.deleteCard(item._id)
+                        .then(() => {
+                            card.deleteCardHandler();
+                        })
+                })
+            }
+        })
+    const cardElement = card.generateCard();
+    return cardElement;
 }
-
-
 
 
 
@@ -74,18 +71,23 @@ const userInfo = new UserInfo('.profile__name', '.profile__user-about');
 
 
 cardAddBtn.addEventListener('click', () => {
-  cardAddFormValidator.deleteErrorAndInputs();
-  handleAddCard.open();
+    cardAddFormValidator.deleteErrorAndInputs();
+    handleAddCard.open();
 });
 
 profileEditBtn.addEventListener('click', () => {
-  profileEditFormValidator.deleteErrorAndInputs();
-  profileEditFormValidator.submitButtonDisabled();
-  const userData = userInfo.getUserInfo();
-  userName.value = userData.userName;
-  aboutInformation.value = userData.aboutInformation;
-  handleSubmitUserInfo.open();
+    profileEditFormValidator.deleteErrorAndInputs();
+    profileEditFormValidator.submitButtonDisabled();
+    const userData = userInfo.getUserInfo();
+    userName.value = userData.userName;
+    aboutInformation.value = userData.aboutInformation;
+    handleSubmitUserInfo.open();
 });
+
+const popupWithConfirm = new PopupWithConfirm(popupConfirmSelector);
+
+PopupWithConfirm.setEventListeners();
+
 
 
 api.getCard().then((card) => {
@@ -108,7 +110,7 @@ const handleAddCard = new PopupWithForm({
             .then((newCard) => {
                 const section = new Section({items: newCard, renderer: (item) => {
                         console.log(newCard);
-                    const card = createCard(item);
+                        const card = createCard(item);
                         section.addItem(card, true);
                     }}, '.cards');
             })
@@ -133,10 +135,12 @@ const handleSubmitUserInfo = new PopupWithForm({
         api.addUserInfo(userInfo)
             .then((res) => {
                 userInfo.setUserInfo(res);
-        handleSubmitUserInfo.close();})
+                handleSubmitUserInfo.close();})
             .catch((err)=>{ console.log(err) }).finally(() => {
             handleSubmitUserInfo.close();
         })
-}});
+    }});
 
 handleSubmitUserInfo.setEventListenersPopupWithForm();
+
+ */
