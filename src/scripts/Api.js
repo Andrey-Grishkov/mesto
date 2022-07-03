@@ -48,7 +48,7 @@ export class Api {
 
     deleteCard(id) {
         return fetch(
-            `this._url+'/cards/'+this._id`,
+            this._url+'/cards/'+id,
             {
                 method: 'DELETE',
                 headers: this._headers

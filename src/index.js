@@ -47,10 +47,8 @@ function createCard(item) {
           handleCardDelete: () => {
               popupWithConfirm.open(card);
               popupWithConfirm.setHandleSubmit(() => {
-                  console.log('popi')
                   api.deleteCard(item._id)
                       .then(() => {
-                          console.log('pop2')
                           card.deleteCardHandler();
                       })
               })
@@ -89,8 +87,11 @@ profileEditBtn.addEventListener('click', () => {
 });
 
 
-api.getCard().then((card) => {
-    const section = new Section( {items: card, renderer: (item) => {
+
+
+
+api.getCard().then((res) => {
+    const section = new Section( {items: res, renderer: (item) => {
             const card = createCard(item);
             section.addItem(card, false);
         }}, '.cards')
@@ -108,13 +109,13 @@ const handleAddCard = new PopupWithForm({
         api.handleAddCard(newCard)
             .then((newCard) => {
                 const section = new Section({items: newCard, renderer: (item) => {
-                        console.log(newCard);
-                    const card = createCard(item);
+                        const card = createCard(item);
                         section.addItem(card, true);
                     }}, '.cards');
+                section.addItem(createCard(newCard), true);
             })
             .catch((err) => { console.log(err) }).finally(() => {
-            handleAddCard.close();
+            handleAddCard.close({newCard});
             cardAddFormValidator.submitButtonDisabled();
         });
     }

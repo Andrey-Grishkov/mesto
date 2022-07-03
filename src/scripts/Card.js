@@ -15,7 +15,6 @@ export class Card {
     this._myId = myId;
     this._handleCardClick = handleCardClick;
     this._handleCardDelete = handleCardDelete;
-    console.log(data.owner._id);
   }
 
   _getItem() {
@@ -42,7 +41,6 @@ export class Card {
   }
 
   deleteCardHandler() {
-    console.log('pop3')
     this._element.remove();
     this._element = null;
   }
