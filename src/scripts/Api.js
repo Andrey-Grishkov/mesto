@@ -9,7 +9,7 @@ export class Api {
         if (res.ok) {
             return res.json();
         }
-        return Promise.reject('Возникла ошибка')
+        return Promise.reject(`Ошибка: ${res.status}`);
     }
 
     getCard() {

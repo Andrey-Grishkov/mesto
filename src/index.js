@@ -27,6 +27,7 @@ const popupWithConfirm = new PopupWithConfirm(popupConfirmSelector);
 
 popupWithConfirm.setEventListeners();
 
+const myId = '045152ba8c58368e320157ab';
 
 const headers = {
     authorization: 'c127676f-3241-429e-98df-f5ec760025b0',
@@ -36,10 +37,10 @@ const headers = {
 const api = new Api(
     'https://mesto.nomoreparties.co/v1/cohort-43',
     {headers},
-    '045152ba8c58368e320157ab');
+    {myId});
 
 function createCard(item) {
-  const card = new Card (item, '.template-cards',
+  const card = new Card (item, myId,'.template-cards',
     {handleCardClick: ()=>{
       popupWithImage.openPopupWithImage(item.name, item.link);
     }}, {

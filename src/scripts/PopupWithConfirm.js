@@ -5,7 +5,7 @@ export class PopupWithConfirm extends Popup {
     constructor(popupSelector) {
         super(popupSelector);
         console.log(popupSelector);
-        this._form = this._popup.querySelector('.popup__form');
+        this._button = this._popup.querySelector('.popup__delete-card-submit');
     }
 
     setHandleSubmit(func) {
@@ -14,7 +14,7 @@ export class PopupWithConfirm extends Popup {
 
     setEventListeners() {
         super.setEventListeners();
-        this._form.addEventListener('submit', (evt) => {
+        this._button.addEventListener('click', (evt) => {
             evt.preventDefault();
             this.handleSubmitText('Удаление...');
             this._handleSubmit();

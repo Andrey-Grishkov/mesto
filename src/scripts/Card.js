@@ -6,13 +6,16 @@ export class Card {
   _like;
   _handleCardClick;
 
-  constructor(data, selector, {handleCardClick},{handleCardDelete}) {
-    this._selector = selector;
+  constructor(data, myId, selector, {handleCardClick},{handleCardDelete}) {
     this._name = data.name;
     this._link = data.link;
+    this._id = data.id;
+    this._owner = data.owner._id;
+    this._selector = selector;
+    this._myId = myId;
     this._handleCardClick = handleCardClick;
     this._handleCardDelete = handleCardDelete;
-
+    console.log(data.owner._id);
   }
 
   _getItem() {
@@ -32,6 +35,9 @@ export class Card {
     this._imageCard.src = this._link;
     this._imageCard.alt = this._name;
     this._like = this._element.querySelector('.card__like');
+    this._element.id = this._id;
+    if (this._myId !== this._owner) {this._element.querySelector('.card__delete').style.display = 'none'}
+
     return this._element;
   }
 
