@@ -9,7 +9,7 @@ export class UserInfo {
     this._userAboutInformation = document.querySelector(userAboutInputSelector);
   }
 
-  getUserInfo () {
+  getUserInfo() {
     const data = {
       userName: this._userName.textContent,
       aboutInformation: this._userAboutInformation.textContent
@@ -18,6 +18,7 @@ export class UserInfo {
   }
 
   setUserInfo(res) {
+
     this._userName.textContent = res.name;
     this._userAboutInformation.textContent = res.about;
   }

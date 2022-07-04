@@ -53,7 +53,21 @@ function createCard(item) {
                       })
               })
           }
-      }
+      },
+      {handleLikeClick: () => {
+          if (!card.likeDefiner()){
+              api.addLike(card.getCardId())
+                  .then((res) => {
+                      card.setLike(res);
+                  })
+                  .catch((err) => { console.log(err) })
+          } else {
+              api.deleteLike(card.getCardId())
+                  .then((res) => {
+                      card.setLike(res);
+                  })
+                  .catch((err) => { console.log(err) })
+          }}}
   )
   const cardElement = card.generateCard();
   return cardElement;
@@ -131,10 +145,9 @@ api.getUserInfo()
 const handleSubmitUserInfo = new PopupWithForm({
     popupSelector: popupProfileEditSelector,
     submitHandler: (userInfo) => {
-        console.log(userInfo);
         api.addUserInfo(userInfo)
-            .then((res) => {
-                userInfo.setUserInfo(res);
+            .then((userInfo) => {
+                userInfo.setUserInfo(userInfo);
         handleSubmitUserInfo.close();})
             .catch((err)=>{ console.log(err) }).finally(() => {
             handleSubmitUserInfo.close();

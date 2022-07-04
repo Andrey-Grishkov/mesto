@@ -57,4 +57,25 @@ export class Api {
             .then(this._checkResponse)
     }
 
+    addLike(id) {
+        return fetch(
+            this._url+'/cards/likes/'+id,
+            {
+                method: 'PUT',
+                headers: this._headers
+            }
+        )
+            .then(this._checkResponse)
+    }
+
+    deleteLike(id) {
+        return fetch(
+            this._url+'/cards/likes/'+id,
+            {
+                method: 'DELETE',
+                headers: this._headers
+            }
+        )
+            .then(this._checkResponse)
+    }
 }

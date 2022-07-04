@@ -4,7 +4,6 @@ export class PopupWithConfirm extends Popup {
 
     constructor(popupSelector) {
         super(popupSelector);
-        console.log(popupSelector);
         this._button = this._popup.querySelector('.popup__delete-card-submit');
     }
 
