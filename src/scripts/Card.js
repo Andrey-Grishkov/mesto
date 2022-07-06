@@ -1,10 +1,14 @@
 export class Card {
-  _selector;
   _name;
   _link;
-  _element;
-  _like;
+  _id;
+  _owner;
+  _selector;
+  _myId;
   _handleCardClick;
+  _handleCardDelete;
+  _handleLikeClick;
+  _likes;
 
   constructor(data, myId, selector, {handleCardClick},{handleCardDelete}, {handleLikeClick}) {
     this._name = data.name;

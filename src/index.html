@@ -13,6 +13,7 @@
   <main class="content">
     <section class="profile">
       <img class="profile__avatar" src="<%=require('./images/profile__avatar.png')%>" alt="фотография пользователя">
+      <button class="profile__avatar-redaction" type="button"></button>
       <div class="profile__info">
         <div class="profile__info-main">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -103,6 +104,24 @@
         <button class="popup__close" type="button"></button>
         <h3 class="popup__title">Вы уверены?</h3>
       <button class="popup__button-submit popup__delete-card-submit" type="submit">Да</button>
+    </div>
+  </div>
+  <div class="popup popup_type_avatar">
+    <div class="popup__content">
+      <button class="popup__close" type="button"></button>
+      <h3 class="popup__title">Обновить аватар</h3>
+      <form class="popup__form" name="profileForm" novalidate>
+        <input
+                class="popup__user-input popup__user-input_input_card-image"
+                type="url"
+                id="input-avatar-url";
+                required
+                placeholder="Ссылка на аватар"
+                minlength="2"
+                name="link">
+        <span class="popup__error" id="input-avatar-url-error"></span>
+        <button class="popup__button-submit" type="submit">Сохранить</button>
+      </form>
     </div>
   </div>
 </div>
