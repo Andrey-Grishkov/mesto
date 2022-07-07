@@ -10,7 +10,7 @@ export class Card {
   _handleLikeClick;
   _likes;
 
-  constructor(data, myId, selector, {handleCardClick},{handleCardDelete}, {handleLikeClick}) {
+  constructor(data, myId, {selector, handleCardClick,handleCardDelete, handleLikeClick}) {
     this._name = data.name;
     this._link = data.link;
     this._id = data._id;

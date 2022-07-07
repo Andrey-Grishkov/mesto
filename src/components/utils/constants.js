@@ -10,8 +10,8 @@ export const config = {
 export const profileEditBtn = document.querySelector('.profile__edit');
 export const popupProfileEdit = document.querySelector('.popup_type_profile');
 export const popupProfileEditSelector = '.popup_type_profile';
-export const userName = popupProfileEdit.querySelector('.popup__user-input_input_name');
-export const aboutInformation = popupProfileEdit.querySelector('.popup__user-input_input_user-about');
+export const formUserName = popupProfileEdit.querySelector('.popup__user-input_input_name');
+export const formAboutInformation = popupProfileEdit.querySelector('.popup__user-input_input_user-about');
 
 export const cardAddBtn = document.querySelector('.profile__add');
 export const popupСardAdd = document.querySelector('.popup_type_add-card');
