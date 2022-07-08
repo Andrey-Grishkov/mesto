@@ -1,4 +1,4 @@
-import {formUserName} from "./utils/constants";
+import {formUserName} from "../utils/constants";
 
 export class UserInfo {
   _userName;

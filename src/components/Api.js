@@ -2,7 +2,7 @@ export class Api {
   _url
   _headers
 
-  constructor(baseUrl, headers, myId) {
+  constructor(baseUrl, headers) {
     this._url = baseUrl;
     this._headers = headers;
   }
