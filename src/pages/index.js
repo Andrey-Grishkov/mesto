@@ -124,10 +124,10 @@ const sectionCards = new Section(
 );
 
 Promise.all([api.getUserInfo(), api.getCards()])
-  .then(([userinfo, res]) => {
-    userInfo.setUserInfo(userinfo);
-    sectionCards.renderCards(res);
-    myId = res._id;
+  .then(([userData, cards]) => {
+    userInfo.setUserInfo(userData);
+    myId = userData._id;
+    sectionCards.renderCards(cards);
     return myId;
   })
   .catch((err) => console.log(err));
